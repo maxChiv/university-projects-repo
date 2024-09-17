@@ -18,8 +18,9 @@
 6. [Example Executions](#example-executions)
 7. [Testing](#testing)
 8. [Memory Debugging and Profiling](#memory-debugging-and-profiling)
-9. [Acknowledgements](#acknowledgements)
-10. [Full Task Description](#full-task-description)
+9. [Cloning Assignment](#cloning-assignment)
+10. [Acknowledgements](#acknowledgements)
+11. [Full Task Description](#full-task-description)
 
 ## Overview
 
@@ -107,16 +108,11 @@ To run the programs for different stages, use the following commands:
 
 **Expected Output to stdout:**
 
-```
-Carlton --> 1 records - comparisons: 1
-South Melbourne --> NOTFOUND
-```
+- See [matching results testfull.stdout.out](matching_results/testfull.stdout.out)
 
 **Output to `my_outputs/testfull.out`:**
 
-```
-Suburb Name: Carlton, State: VIC, Population: 5100
-```
+- See [matching results testfull.out](matching_results/testfull.out)
 
 ### Stage 2 (Dictionary with Deletion)
 
@@ -128,16 +124,12 @@ Suburb Name: Carlton, State: VIC, Population: 5100
 
 **Expected Output to stdout:**
 
-```
-Deletion Successful for Carlton
-South Melbourne --> NOTFOUND
-```
+
+- See [matching results del3.stdout.out](matching_results/del3.stdout.out)
 
 **Output to `my_outputs/delfull.out`:**
 
-```
-Deleted Suburb Name: Carlton
-```
+- See [matching results del3.out](matching_results/del3.out)
 
 ## Testing
 
@@ -180,6 +172,34 @@ make gdb_dict1
 # Run GDB for Stage 2
 make gdb_dict2
 ```
+
+## Cloning Assignment 
+
+To set up the project files, you can either clone the repository or download the files as a zip:
+
+### Option 1: Cloning the Repository
+
+1. **Clone the Repository:**
+
+   ```bash
+   git clone https://github.com/maxChiv/university-projects-repo.git
+   ```
+
+2. **Navigate to the Assignment Folder:**
+
+   ```bash
+   cd university-projects-repo/COMP20003/Assignment1
+   ```
+
+### Option 2: Downloading as a Zip
+
+1. Navigate to the [repository URL](https://github.com/maxChiv/university-projects-repo.git).
+
+2. Click on the **Code** button.
+
+3. Select **Download ZIP** to download the entire repository.
+
+4. Extract the downloaded ZIP file and navigate to `COMP20003/Assignment1`.
 
 ## Acknowledgements
 
