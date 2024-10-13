@@ -17,6 +17,11 @@ In this course, students explore various representations of data and the trade-o
     - Evaluating time and memory complexity in a comparative report between both data structures.
   - Full assignment structure and detailed requirements can be found in the [Assignment 2 README](Assignment2/README.md).
 
+- **Assignment 3: Chessformer Solver**
+  - This assignment focuses on adding to already made source code about an adaption of chessformer. The goal is to create a graph based algorithm that can solve the puzzle in as little steps as possible
+  - Full assignment structure and detailed requirements can be found in the [Assignment 3 README](Assignment3/README.md).
+
+
 ### Running the Assignments
 Each assignment has its own `README.md` file that provides detailed instructions on how to run the code.
 
