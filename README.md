@@ -5,6 +5,8 @@
 - [COMP20003 - Algorithms and Data Structures](COMP20003/README.md)
     - [Assignment1 - Linked list based Dictionary](COMP20003/Assignment1/README.md)
     - [Assignment2 - Spellcheck lookup](COMP20003/Assignment2/README.md)
+    - [Assignment 3 - Chessformer Solver](COMP20003/Assignment3/README.md)
+
 
 ## Repository Structure
 The repository is organised by individual courses. Each course contains coding assignments related to that class. Here’s how the repository is structured:
