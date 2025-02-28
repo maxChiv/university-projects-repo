@@ -1,3 +1,6 @@
 [submodule "COMP20003/Assignment3"]
 	path = COMP20003/Assignment3
 	url = https://github.com/maxChiv/Assignment3-COMP20003.git
+[submodule "COMP20008/Assignment2"]
+	path = COMP20008/Assignment2
+	url = https://github.com/maxChiv/Assignment-2-COMP20008-Group-W11G2
