@@ -233,7 +233,7 @@ uint32_t tlb_get_size(tlb_t *tlb) { return tlb->tlb_size; }
  * Returns:
  *   the flushed page number if an entry was removed, otherwise returns -1.
  */
-uint32_t tlb_flush_entry(tlb_t *tlb, uint32_t page_number) {
+int32_t tlb_flush_entry(tlb_t *tlb, uint32_t page_number) {
     int index = tlb_hash(page_number);
     int flushed_page_number = TLB_FAIL;  // Used as a flag to determine if something was flushed
     

@@ -30,7 +30,7 @@ tlb_t* tlb_create(void);
 void tlb_destroy(tlb_t *tlb);
 int tlb_lookup(tlb_t* tlb, uint32_t page_number);
 int tlb_add(tlb_t* tlb, uint32_t page_number, uint32_t frame_number);
-uint32_t tlb_flush_entry(tlb_t *tlb, uint32_t page_number);
+int32_t tlb_flush_entry(tlb_t *tlb, uint32_t page_number);
 uint32_t tlb_get_LRU_page(tlb_t *tlb);
 uint32_t tlb_get_size(tlb_t *tlb);
 

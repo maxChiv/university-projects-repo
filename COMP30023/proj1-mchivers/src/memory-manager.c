@@ -241,10 +241,12 @@ void load_page(memory_manager_t *mm, uint32_t page_number, uint32_t frame_number
 
     // Flush TLB if needed
     if (mm->tlb != NULL && evicted_page_number != MM_NULL_INT_FLAG) {
-        tlb_flush_entry(mm->tlb, evicted_page_number);
+        int tlb_flush_res = tlb_flush_entry(mm->tlb, evicted_page_number);
 
         #if STATS_FLAG
-        log_task4b(evicted_page_number, tlb_get_size(mm->tlb));
+        if (tlb_flush_res != TLB_FAIL) {
+            log_task4b(evicted_page_number, tlb_get_size(mm->tlb));
+        }
         #endif
     }
 
