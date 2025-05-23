@@ -1,0 +1,157 @@
+COMP30023 2025 Project 1 After Deadline Tests
+v2
+
+Checking out 404cc287f8a06de03b5039fa2df2ad4924951b35
+HEAD is now at 404cc28 Added a new my test.
+Commit log:
+404cc28 2025-04-16T15:37:45+10:00: Added a new my test.
+4786630 2025-04-16T15:15:58+10:00: Refactored memory-manager to be more modularised and readable.
+a48aad1 2025-04-16T13:55:20+10:00: Fix miscelanious issues, and improved readability.
+13bb6fa 2025-04-16T13:20:32+10:00: Fixed Makefile and other git issues.
+fb4795c 2025-04-15T22:55:57+10:00: Added workflow of task 4 in memory manager with stats.
+df2cb4b 2025-04-14T23:32:17+10:00: Created initial implementation of tlb using doubly linked list, and other data structs.
+ad47079 2025-04-14T21:48:15+10:00: Created the generic doubly linked list module for tlb.
+af1ef98 2025-04-14T16:21:48+10:00: Completed output of task3.
+5c8e7c5 2025-04-14T14:40:08+10:00: Added stats for task 3 logging.
+a930615 2025-04-14T14:31:24+10:00: Implemented initial FIFO page eviction system in memory manager with linked list file.
+9ff8eda 2025-04-13T22:34:09+10:00: Refactored memory manager to have its own type to store variables, removed singleton in page-table.
+a8f7de3 2025-04-13T22:09:15+10:00: Fixed memory leaks by clearing persistent memory in main.c.
+c2caf0a 2025-04-13T21:56:42+10:00: Update makefile, ensuring an obj directory
+7bd6140 2025-04-13T21:51:25+10:00: Refactored page-table to SINGLETON pattern, then implemented task2 workflow in memory-manager.c
+cdc834f 2025-04-13T17:52:27+10:00: Created initial page table module, and miscallanious changes.
+e0e65bd 2025-04-13T16:13:05+10:00: Implemented parsing logical address in the memory manager, and miscellanious fixes.
+7878015 2025-04-13T15:57:02+10:00: Created initial stats module for logging (task1 only), and miscellanious
+301420e 2025-04-13T14:35:35+10:00: Completed initial logical address parser module.
+1e62899 2025-04-13T13:27:31+10:00: Updated system-specs.h to be more derived
+bd38880 2025-04-13T13:21:41+10:00: Updated uint32_t as logical address, implemented specs header for task 1
+2960f8b 2025-04-13T12:49:22+10:00: Implemented main input, and skeleton of memory-manager. Fixed repo structure, thus updated makefile.
+b16bef1 2025-03-23T17:36:33+11:00: init: skeleton and visible test cases
+47d6a79 2025-03-23T17:56:05+11:00: init: add ci [no ci]
+
+make clean
+
+make
+gcc -O3 -Wall -g -Iinclude     -c src/logical-address-parser.c -o obj/logical-address-parser.o
+gcc -O3 -Wall -g -Iinclude     -c src/main.c -o obj/main.o
+gcc -O3 -Wall -g -Iinclude     -c src/memory-manager.c -o obj/memory-manager.o
+gcc -O3 -Wall -g -Iinclude     -c src/page-table.c -o obj/page-table.o
+gcc -O3 -Wall -g -Iinclude     -c src/stats.c -o obj/stats.o
+gcc -O3 -Wall -g -Iinclude     -c src/tlb.c -o obj/tlb.o
+gcc -O3 -Wall -g -Iinclude     -c src/linked-list/generic-doubly-linkedlist.c -o obj/linked-list/generic-doubly-linkedlist.o
+gcc -O3 -Wall -g -Iinclude     -c src/linked-list/linkedlist.c -o obj/linked-list/linkedlist.o
+gcc -O3 -Wall -g -Iinclude     -o translate obj/logical-address-parser.o obj/main.o obj/memory-manager.o obj/page-table.o obj/stats.o obj/tlb.o obj/linked-list/generic-doubly-linkedlist.o obj/linked-list/linkedlist.o
+
+OK -- ./translate found. Copying to clean working directory.
+
+make clean
+
+Visible Tests
+Task 1 t1-spec (0.50): Passed
+Task 1 t1-mask (0.25): Passed
+Task 1 t1-bound (0.25): Passed
+Task 2 t2-spec (0.10): Passed
+Task 2 t2-mask (0.20): Passed
+Task 2 t2-bound (0.20): Passed
+Task 2 t2-same (0.40): Passed
+Task 2 t2-3page (0.30): Passed
+Task 2 t2-255 (0.40): Passed
+Task 2 t2-255-more (0.40): Passed
+Task 3 t3-spec2 (0.50): Passed
+Task 3 t3-512 (0.50): Passed
+Task 3 t3-loop (0.50): Passed
+Task 4 t4-basic (0.40): Passed
+Task 4 t4-3page (0.50): Passed
+Task 4 t4-lru (0.60): Passed
+Task 4 t4-spec2 (0.50): Passed
+
+Valgrind
+Task v1 valgrind-task1 (0): Passed
+Task v3 valgrind-task3 (0): Passed
+
+Hidden Tests
+Task 1 t1-bound2 (0.40): Passed
+Task 1 t1-max (0.30): Passed
+Task 1 t1-rand-255 (0.30): Passed
+Task 2 t2-same2 (0.40): Passed
+Task 2 t2-3page-shuf (0.30): Passed
+Task 2 t2-256 (0.40): Passed
+Task 2 t2-255-more-extended (0.40): Passed
+Task 2 t2-rand-255-nomask (0.25): Passed
+Task 2 t2-rand-fill (0.25): Passed
+Task 3 t3-spec2-extended (0.50): Passed
+Task 3 t3-1024 (0.50): Passed
+Task 3 t3-513-repeat (0.50): Passed
+Task 4 t4-3page-shuf (0.20): Passed
+Task 4 t4-spec2-extended (0.30): Failed
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+tlb-flush=22,tlb-size=32                                        <
+tlb-flush=23,tlb-size=32                                        <
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+Task 4 t4-42-pages (0.30): Passed
+Task 4 t4-500 (0.50): Failed
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+tlb-flush=319,tlb-size=32                                       <
+tlb-flush=717,tlb-size=32                                       <
+tlb-flush=862,tlb-size=32                                       <
+tlb-flush=669,tlb-size=32                                       <
+tlb-flush=48,tlb-size=32                                        <
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+Task 4 t4-1000 (0.40): Failed
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+tlb-flush=908,tlb-size=32                                       <
+tlb-flush=213,tlb-size=32                                       <
+tlb-flush=640,tlb-size=32                                       <
+tlb-flush=12,tlb-size=32                                        <
+tlb-flush=62,tlb-size=32                                        <
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+Task 4 t4-10000 (0.30): Failed
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+tlb-flush=428,tlb-size=32                                       <
+tlb-flush=580,tlb-size=32                                       <
+tlb-flush=760,tlb-size=32                                       <
+tlb-flush=539,tlb-size=32                                       <
+tlb-flush=253,tlb-size=32                                       <
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+Valgrind (Hidden)
+Task v2 valgrind-task2 (0): Passed
+Task v4 valgrind-task4 (0): Passed
+
+Extra
+Task 4 empty (0): Passed
+Task 4 t3-10000 (0): Passed
+Task 4 ed169 (0): Passed
+Task 1 ed402 (0): Passed
+Task 4 ed416-1 (0): Passed
+Task 4 ed416-2 (0): Failed
+Task 4 ed416-3 (0): Failed
+Task 4 ed416-4.t1 (0): Passed
+Task 4 ed416-4.t2 (0): Passed
+Task 4 ed416-4.t3 (0): Passed
+Task 4 ed416-4.t4 (0): Passed
+Task 4 ed416-4.10k1 (0): Failed
+Task 4 ed416-4.10k2 (0): Failed
+Task 4 ed416-4.10k3 (0): Failed
+Task 4 ed416-4.10k4 (0): Failed
+Task 4 ed416-4.long (0): Skipped
+Task 4 ed416-4.million (0): Skipped
+
+======= Automated Grading Assumptions Below =======
+Re-examination Guidelines: If you'd like to have your assessment grade reviewed, you need to fill the grade review form.
+Do not email as it is very difficult to keep track of 500+ students using email, we prefer to have everything visible on a single spreadsheet.
+
+=============== START RESULTS TABLE ===============
+Task 1: Logical Address Parser                2.00
+Task 2: Page Table and Frame Allocation       4.00
+Task 3: Page Replacement Algorithm            3.00
+Task 4: TLB                                   2.50
+Build quality                                 1
+Quality of software practices                 1
+Late penalty                                  0
+Project 1 (Total)                             13.5
+================ END RESULTS TABLE ================
+
+Submitted on day:                             (0)
+
+Assessor comments:
+Good job. The code is modular, well-formatted, and uses clear variable names. Git commit messages are meaningful.
