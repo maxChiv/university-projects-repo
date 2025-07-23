@@ -1,7 +1,5 @@
 ## Computer Systems (COMP30023)
 
-NONE OF THE BELOW IS UPDATED!!
-
 ### Course Description
 [Computer Systems, University of Melbourne Handbook](https://handbook.unimelb.edu.au/2025/subjects/comp30023)
 
