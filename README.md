@@ -13,6 +13,7 @@
 - [SWEN30006 - Software Modelling and Design](SWEN30006/README.md)
 
 **MATHEMATICAL SCIENCES, SPECIALISING IN APPLIED MATHEMATICS SUBJECTS:**
+- [PHYC10009 - Foundations of Physics](PHYC10009/README.md)
 - [MAST10012 - Introduction to Mathematics](MAST10012/README.md)
 - [MAST20009 - Vector Calculus](MAST20009/README.md)
 
