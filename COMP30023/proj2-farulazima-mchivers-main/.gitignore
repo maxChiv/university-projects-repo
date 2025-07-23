@@ -1,0 +1,8 @@
+# Ignore compiled binary
+htproxy
+
+# Ignore object files
+obj/
+
+# Ignore vscode workspace
+.vscode

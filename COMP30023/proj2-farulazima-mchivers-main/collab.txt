@@ -1,0 +1,99 @@
+===========================================
+Collaboration Log - COMP30023 Project2
+Names: Max Chivers, Alif Farul Azim
+Project: Web proxy
+===========================================
+
+Date: 08-05-2025
+Meeting: 1
+Summary:
+- Discussed the overall project and our original ideas about how we will implement it.
+- Discussed the resources we will use to research ways to implement it leading to the following:
+    - https://how.dev/answers/how-to-implement-tcp-sockets-in-c
+    - https://beej.us/guide/bgnet/html/split/index.html
+    - https://www.geeksforgeeks.org/socket-programming-cc/
+    - https://www.geeksforgeeks.org/tcp-server-client-implementation-in-c/
+- Discussed an overall repo structure and modularisation of code.
+Decisions:
+- By next meeting look over all tasks and come up with ideas for it.
+
+--- 
+
+Date: 13-05-2025
+Meeting: 2
+Summary:
+- Discussed our ideas for the project that we had after research.
+- Arrived at a rough structure that can be extended and is modular for the repo:
+    '''
+    Makefile
+    README.md
+    src/
+    ├── proxy.c                # Central Proxy Logic 
+    ├── main.c                 # entry point: argument parsing, main loop
+    ├── common.h               # shared includes, macros, constants
+    ├── network/
+    │   ├── listener.c         # setup listening socket, accept clients
+    │   ├── listener.h
+    │   ├── forwarder.c        # connect to origin, send request
+    │   └── forwarder.h
+    ├── http/
+    │   ├── request.c          # parse HTTP GET request
+    │   ├── request.h
+    │   ├── response.c         # read/stream origin server response
+    │   └── response.h
+    ├── util/
+    │   ├── logger.c           # all logging (Accepted, tail, GETting, etc.)
+    │   └── logger.h
+    '''
+- Reviewed our individual research.
+- Reviewed specific aspects of project from specs to keep in mind and from Ed.
+- Created a pdf for us to go off for task 1
+Decisions:
+- Max: responsible for http/ and logger/
+- Alif: responsible for network/ and some aspects of proxy.c
+- By next meeting have our responsiblities complete and integrate them together in proxy.c to complete task 1.
+
+---
+
+Date: 16-05-2025
+Meeting: 3
+Summary:
+- Had a coding session to implement our responsibilities from Meeting 2
+- Implemented the Task 1 specifications
+Decisions:
+- Max: responsible for debugging binary test case
+- Alif: responsible for ideation of next tasks.
+
+--- 
+
+Date: 20-05-2025
+Meeting: 4
+Summary:
+- Discuss the state of the code and improvements that could be made.
+- Idea to refactor current state to make it cleaner.
+    REFACTORED REPO 
+    '''
+    Makefile
+    README.md
+    (etc...)
+    
+    src/
+    ├── main.c
+    ├── proxy.c
+    ├── socket_util.c
+    ├── http_util.c
+    ├── request.c
+    └── response.c
+
+    include/
+    ├── proxy.h
+    ├── socket_util.h
+    ├── http_util.h
+    ├── request.h
+    └── response.h
+    '''
+- Discuss how we want to implement the cache where it will be easily extendible for Tasl 3/4/5.
+Decisions:
+- Will do a hashmap that has a linkedlist for entries to keep track of LRU. It will make management easy with this data structure and extendible.
+- Max: Responsible for refactoring of current code, and reusing some code from Proj1 to make the cache data strucutre.
+- Alif: Write helper functions needed for the cache in later stages (Tasks after Task 2).
