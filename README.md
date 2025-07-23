@@ -7,6 +7,7 @@
     - [Assignment1 - Linked list based Dictionary](COMP20003/Assignment1/README.md)
     - [Assignment2 - Spellcheck lookup](COMP20003/Assignment2/README.md)
     - [Assignment 3 - Chessformer Solver](COMP20003/Assignment3/README.md)
+- [INFO20003 - Database Systems](INFO20003/README.md)
 - [COMP20008 - Elements of Data Processing](COMP20008/README.md)
     - [Assignment 2 - Data Processing Report](COMP20008/Assignment2/README.md)
 - [COMP30023 - Computer Systems](COMP30023/README.md)
