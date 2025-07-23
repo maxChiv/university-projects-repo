@@ -1,0 +1,98 @@
+    0: Simulation parameters - time=29-04-2025 13:31:58  seed=30006
+    2: Arrived: Parcel from time 2 addressed to 2 First Street; Weight: 10 Fragile?: false
+    2: Arrived: Parcel from time 2 addressed to 1 Second Street; Weight: 15 Fragile?: false
+    2: Arrived: Parcel from time 2 addressed to 3 First Street; Weight: 4 Fragile?: false
+    5: Arrived: Parcel from time 5 addressed to 2 Second Street; Weight: 7 Fragile?: false
+    7: 1 Out Avenue D1 arrive
+    8: 1 Out Avenue D1 depart
+    8: 2 Out Avenue D1 arrive
+    9: 2 Out Avenue D1 depart
+    9: 1 First Street D1 arrive
+   10: 1 First Street D1 startDelivery
+   10: Delivered: Parcel from time 2 addressed to 2 First Street; Weight: 10 Fragile?: false
+   11: 1 First Street D1 endDelivery
+   12: 1 First Street D1 depart
+   12: 3 First Street D1 arrive
+   13: 3 First Street D1 depart
+   13: 5 First Street D1 arrive
+   14: 5 First Street D1 depart
+   14: 2 Back Avenue D1 arrive
+   15: 2 Back Avenue D1 depart
+   15: 1 Back Avenue D1 arrive
+   16: 1 Back Avenue D1 depart
+   27: 1 Out Avenue D1 arrive
+   28: 1 Out Avenue D1 depart
+   28: 2 Out Avenue D1 arrive
+   29: 2 Out Avenue D1 depart
+   29: 3 Out Avenue D1 arrive
+   30: 3 Out Avenue D1 depart
+   30: 4 Out Avenue D1 arrive
+   31: 4 Out Avenue D1 depart
+   31: 5 Out Avenue D1 arrive
+   32: 5 Out Avenue D1 depart
+   32: 1 Second Street D1 arrive
+   33: 1 Second Street D1 startDelivery
+   33: Delivered: Parcel from time 2 addressed to 1 Second Street; Weight: 15 Fragile?: false
+   34: 1 Second Street D1 endDelivery
+   35: 1 Second Street D1 depart
+   35: 3 Second Street D1 arrive
+   36: 3 Second Street D1 depart
+   36: 5 Second Street D1 arrive
+   37: 5 Second Street D1 depart
+   37: 5 Back Avenue D1 arrive
+   38: 5 Back Avenue D1 depart
+   38: 4 Back Avenue D1 arrive
+   39: 4 Back Avenue D1 depart
+   39: 3 Back Avenue D1 arrive
+   40: 3 Back Avenue D1 depart
+   40: 2 Back Avenue D1 arrive
+   41: 2 Back Avenue D1 depart
+   41: 1 Back Avenue D1 arrive
+   42: 1 Back Avenue D1 depart
+   53: 1 Out Avenue D1 arrive
+   54: 1 Out Avenue D1 depart
+   54: 2 Out Avenue D1 arrive
+   55: 2 Out Avenue D1 depart
+   55: 1 First Street D1 arrive
+   56: 1 First Street D1 depart
+   56: 3 First Street D1 arrive
+   57: 3 First Street D1 startDelivery
+   57: Delivered: Parcel from time 2 addressed to 3 First Street; Weight: 4 Fragile?: false
+   58: 3 First Street D1 endDelivery
+   59: 3 First Street D1 depart
+   59: 5 First Street D1 arrive
+   60: 5 First Street D1 depart
+   60: 2 Back Avenue D1 arrive
+   61: 2 Back Avenue D1 depart
+   61: 1 Back Avenue D1 arrive
+   62: 1 Back Avenue D1 depart
+   73: 1 Out Avenue D1 arrive
+   74: 1 Out Avenue D1 depart
+   74: 2 Out Avenue D1 arrive
+   75: 2 Out Avenue D1 depart
+   75: 3 Out Avenue D1 arrive
+   76: 3 Out Avenue D1 depart
+   76: 4 Out Avenue D1 arrive
+   77: 4 Out Avenue D1 depart
+   77: 5 Out Avenue D1 arrive
+   78: 5 Out Avenue D1 depart
+   78: 1 Second Street D1 arrive
+   79: 1 Second Street D1 startDelivery
+   79: Delivered: Parcel from time 5 addressed to 2 Second Street; Weight: 7 Fragile?: false
+   80: 1 Second Street D1 endDelivery
+   81: 1 Second Street D1 depart
+   81: 3 Second Street D1 arrive
+   82: 3 Second Street D1 depart
+   82: 5 Second Street D1 arrive
+   83: 5 Second Street D1 depart
+   83: 5 Back Avenue D1 arrive
+   84: 5 Back Avenue D1 depart
+   84: 4 Back Avenue D1 arrive
+   85: 4 Back Avenue D1 depart
+   85: 3 Back Avenue D1 arrive
+   86: 3 Back Avenue D1 depart
+   86: 2 Back Avenue D1 arrive
+   87: 2 Back Avenue D1 depart
+   87: 1 Back Avenue D1 arrive
+   88: 1 Back Avenue D1 depart
+   95 Finished: Items delivered = 4; Average time for delivery = 42.00

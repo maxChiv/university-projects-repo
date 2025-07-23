@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="TestDefaultProperties" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-04-29T03:31:58" hostname="Mikals-MacBook-Pro.local" time="58.832">
+  <properties/>
+  <testcase name="testDefaultProperties()" classname="TestDefaultProperties" time="58.832"/>
+  <system-out><![CDATA[Working Directory = /Users/personalaccount/Desktop/school/mcgill/exchange/project1-2025s1-team06
+Properties file = 
+defaultLogs =    95 Finished: Items delivered = 4; Average time for delivery = 42.00
+Arrived: Parcel from time 2 addressed to 2 First Street; Weight: 10 Fragile?: false
+Arrived: Parcel from time 2 addressed to 1 Second Street; Weight: 15 Fragile?: false
+Arrived: Parcel from time 2 addressed to 3 First Street; Weight: 4 Fragile?: false
+Arrived: Parcel from time 5 addressed to 2 Second Street; Weight: 7 Fragile?: false
+Delivered: Parcel from time 2 addressed to 2 First Street; Weight: 10 Fragile?: false
+Delivered: Parcel from time 2 addressed to 1 Second Street; Weight: 15 Fragile?: false
+Delivered: Parcel from time 2 addressed to 3 First Street; Weight: 4 Fragile?: false
+Delivered: Parcel from time 5 addressed to 2 Second Street; Weight: 7 Fragile?: false
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

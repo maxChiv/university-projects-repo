@@ -1,0 +1,11 @@
+aWorking Directory = /Users/personalaccount/Desktop/school/mcgill/exchange/project1-2025s1-team06
+Properties file = 
+UdefaultLogs =    95 Finished: Items delivered = 4; Average time for delivery = 42.00
+TArrived: Parcel from time 2 addressed to 2 First Street; Weight: 10 Fragile?: false
+UArrived: Parcel from time 2 addressed to 1 Second Street; Weight: 15 Fragile?: false
+SArrived: Parcel from time 2 addressed to 3 First Street; Weight: 4 Fragile?: false
+TArrived: Parcel from time 5 addressed to 2 Second Street; Weight: 7 Fragile?: false
+VDelivered: Parcel from time 2 addressed to 2 First Street; Weight: 10 Fragile?: false
+WDelivered: Parcel from time 2 addressed to 1 Second Street; Weight: 15 Fragile?: false
+UDelivered: Parcel from time 2 addressed to 3 First Street; Weight: 4 Fragile?: false
+VDelivered: Parcel from time 5 addressed to 2 Second Street; Weight: 7 Fragile?: false
