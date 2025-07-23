@@ -1,0 +1,5 @@
+There is no need to purchase a textbook for MAST20009 Vector Calculus.
+
+The text recommended for extra reading is Vector Calculus, 6th edition by J.E. Marsden and A. J. Tromba, published by Freeman. Any earlier or later edition of the book is also suitable as a reference.
+
+References to the 4th Edition of the book by Marsden and Tromba, which is available in the ERC library, are given in the problem sheet booklet.

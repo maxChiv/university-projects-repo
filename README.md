@@ -2,6 +2,7 @@
  This repositories contains all the projects I have completed for each course.
  A description of each course and project is provided, with relevant links of information.
 ## Table of Contents
+**COMPUTING AND SOFTWARE SYSTEMS SUBJECTS:**
 - [COMP20003 - Algorithms and Data Structures](COMP20003/README.md)
     - [Assignment1 - Linked list based Dictionary](COMP20003/Assignment1/README.md)
     - [Assignment2 - Spellcheck lookup](COMP20003/Assignment2/README.md)
@@ -10,6 +11,9 @@
     - [Assignment 2 - Data Processing Report](COMP20008/Assignment2/README.md)
 - [COMP30023 - Computer Systems](COMP30023/README.md)
 - [SWEN30006 - Software Modelling and Design](SWEN30006/README.md)
+
+**MATHEMATICAL SCIENCES, SPECIALISING IN APPLIED MATHEMATICS SUBJECTS:**
+- [MAST20009 - Vector Calculus](MAST20009/README.md)
 
 ## Repository Structure
 The repository is organised by individual courses. Each course contains coding assignments related to that class. Here’s how the repository is structured:
