@@ -1,0 +1,69 @@
+Elements of Quantum Computing (MULT20015_2024_SM2)
+It is a great pleasure to welcome you to our subject MULT20015, Elements of Quantum Computing.
+
+This subject aims to provide an introduction to quantum computing for students from a range of backgrounds that will position students for further studies in quantum computing and programming. The syllabus will cover basic principles of quantum bits (qubits) and quantum logic operations, through to applications in communication, security, optimisation, finance and machine learning. In computer-based tutorials, students will learn quantum computer programming using a state-of-the-art simulation environment. This subject will be taught by a multi-disciplinary teaching team from physics, mathematics, computer science and finance.
+
+Must-Read Instructions
+Please make sure to read this page carefully. This page summarizes the key information relevant for this subject.  If you have any questions in the future, please make sure to first come back here to see if your question is already answered.
+
+To see the components of this subject, go to Modules, where you will be able to download lecture slides and tutorial work sheets (first 4 weeks available to begin with), which you should print and bring to the tutorial sessions. During the semester, we will publish solutions to the practice class work sheets and a practice exam with solutions.
+
+Lectures & Labs
+There will be two weekly lectures and one tutorial ("practice class"). Even though, the lectures are recorded, we strongly recommend to attend every lecture in person. Similarly, it is strongly recommended to attend ALL tutorial sessions, beginning in Week 1, as this is really where you will reinforce your learning and interact with the subject tutors. However, we do not enforce attendance. Tutorials/lectures are integrated with the Quantum User Interface (QUI), a quantum computer programming environment and simulator system accessed via a (Chrome) browser at QUIspace.org, Please register on the QUI page with your unimelb email address (critical in order to access the extended version with 10 qubits).
+
+Teaching schedule:
+
+Monday Lecture at 11:00 in PAR-115-L1-104-Medley Theatre (163)
+Tuesday Lecture at 14:15 in PAR-115-L1-102-Latham Theatre (165)
+Thursday Tutorial 1 at 13:15 in Baker Computer Lab (Room 661 on this map), Level 6, David Caro Building
+Thursday Tutorial 2 at 14:15 in Baker Computer Lab (Room 661 on this map), Level 6, David Caro Building
+Friday Tutorial 3 at 10:00 in Baker Computer Lab (Room 661 on this map), Level 6, David Caro Building
+Friday Tutorial 4 at 13:15 in Baker Computer Lab (Room 661 on this map), Level 6, David Caro Building
+Assessment
+Your final grade will be determined by the following:
+
+20% - Assignment 1
+30% - Assignment 2
+50% - 2-hour final exam
+Late submission / Special consideration
+Assignment submissions should occur on time.
+
+If you submit late, a deduction of 10% of the total mark will be applied per day after the due date, i.e., if the assignment has 20 total marks, you will only be able to reach up to 18 total marks if you submit within 1 day late.
+If you have a medical reason which made it necessary to submit late, you need to apply for a special consideration:
+For submitting up to 10 business days late for an assignment, you can apply for a special consideration attaching your medical certificates in an email to josh.combes@unimelb.edu.au. Note: If the deadline was end of Friday of week x and you would like to submit any time after Friday of week x+2 (even on a non-business day, e.g., Saturday two weeks later), this would be considered MORE than 10 business days late.
+For submitting more than 10 business days late, you will need to apply for a special consideration through the faculty website.
+Teaching team
+Subject coordinators
+
+Dr. Joshua Combes, josh.combes@unimelb.edu.au
+Prof. Lloyd Hollenberg, lloydch@unimelb.edu.au
+Regular lecturers
+
+Dr. Joshua Combes, josh.combes@unimelb.edu.au
+Prof. Lloyd Hollenberg, lloydch@unimelb.edu.au  
+Prof. Adrian Pearce, adrianrp@unimelb.edu.au
+Dr. Nitin Yadav, nitin.yadav@unimelb.edu.au
+A/Prof. Muhammad Usman, muhammad.usman@unimelb.edu.au
+Dr. Lucas Hackl, lucas.hackl@unimelb.edu.au 
+Head tutor
+
+Mr. Chris Nakhl chris.nakhl@unimelb.edu.au
+Suggested reading
+E. Rieffel and W. Polak: "Quantum Computing: A Gentle Introduction"
+IBM Quantum Experience – on-line textbook (qiskit.org/textbookLinks to an external site.)
+Subject Communication
+In this subject, we will communicate to you primarily through lectures and practice classes.
+
+Please check for announcements here on LMS or to your University Email Address
+Please use Ed Discussions to ask questions and discuss with other students.
+Please only email the subject coordinators (Josh & Lloyd) in an important emergency.
+Support Material
+The University offers many support services for students. Some of the key services are listed below:
+
+Library
+Academic Skills
+Student Equity and Disability Support
+Student wellbeing
+Special consideration processes
+Stop 1 support
+Career support

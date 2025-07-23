@@ -17,6 +17,9 @@
 - [MAST10012 - Introduction to Mathematics](MAST10012/README.md)
 - [MAST20009 - Vector Calculus](MAST20009/README.md)
 
+**OTHER SUBJECTS**
+- [MULT20015 - Elements of Quantum Computing](MULT20015/README.md)
+
 ## Repository Structure
 The repository is organised by individual courses. Each course contains coding assignments related to that class. Here’s how the repository is structured:
 
