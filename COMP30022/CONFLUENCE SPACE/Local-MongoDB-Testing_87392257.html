@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Group Twenty Two Project : Local MongoDB Testing</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Group Twenty Two Project</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Group-Twenty-Two-Project_622858.html">Group Twenty Two Project</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="._146866177.html">.</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="23986177.html">&lt;/&gt; Development Documentation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Testing_59244548.html">Testing</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Group Twenty Two Project : Local MongoDB Testing
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Eugene Yap</span> on Oct 26, 2025
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <ol start="1"><li><p>Setup Backend files in Docker</p></li></ol><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">docker compose up backend</pre>
+</div></div><ol start="2"><li><p>Check logs </p></li></ol><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">docker compose logs -f backend</pre>
+</div></div><p>Should see <code>Started Application in X seconds</code></p><p><strong>Creation of Mock Data</strong></p><p>Create User (POST <code>/api/v1/users</code>)</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">curl -X POST http://localhost:8080/api/v1/users \
+  -H &quot;Content-Type: application/json&quot; \
+  -d &#39;{
+        &quot;id&quot;: &quot;user-001&quot;,
+        &quot;name&quot;: &quot;Dr. Alice Nguyen&quot;,
+        &quot;email&quot;: &quot;alice@unimelb.edu.au&quot;,
+        &quot;isAdmin&quot;: false,
+        &quot;isApprover&quot;: true
+      }&#39;</pre>
+</div></div><p>Create Project (POST <code>/api/v1/projects</code>)</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">curl -X POST http://localhost:8080/api/v1/projects \
+  -H &quot;Content-Type: application/json&quot; \
+  -H &quot;X-User-Id: user-001&quot; \
+  -d &#39;{
+        &quot;projectId&quot;: &quot;P-001&quot;,
+        &quot;title&quot;: &quot;Quantum Sensor Research&quot;,
+        &quot;description&quot;: &quot;Developing new superconducting sensors&quot;,
+        &quot;ownerUserId&quot;: &quot;user-001&quot;,
+        &quot;status&quot;: &quot;DRAFT&quot;,
+        &quot;details&quot;: {
+          &quot;funder&quot;: &quot;ARC&quot;,
+          &quot;department&quot;: &quot;School of Physics&quot;,
+          &quot;faculty&quot;: &quot;Science&quot;,
+          &quot;scheme&quot;: &quot;Discovery Grant&quot;,
+          &quot;startDate&quot;: &quot;2025-01-01&quot;,
+          &quot;endDate&quot;: &quot;2026-12-31&quot;,
+          &quot;currency&quot;: &quot;AUD&quot;
+        }
+      }&#39;</pre>
+</div></div><p>and expected result will be </p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+  &quot;projectId&quot;: &quot;P-001&quot;,
+  &quot;status&quot;: &quot;DRAFT&quot;,
+  &quot;title&quot;: &quot;Quantum Sensor Research&quot;
+}</pre>
+</div></div><h3 id="LocalMongoDBTesting-SubmitProjectforApproval">Submit Project for Approval</h3><p>(POST <code>/api/v1/projects/{projectId}/approvals/submit</code>)</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">curl -X POST http://localhost:8080/api/v1/projects/P-001/approvals/submit \
+  -H &quot;Content-Type: application/json&quot; \
+  -H &quot;X-User-Id: user-001&quot; \
+  -d &#39;{
+        &quot;actorUserId&quot;: &quot;user-001&quot;,
+        &quot;comment&quot;: &quot;Submitting project for review&quot;
+      }&#39;</pre>
+</div></div><p>and expected result will be </p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+  &quot;projectId&quot;: &quot;P-001&quot;,
+  &quot;status&quot;: &quot;SUBMITTED&quot;,
+  &quot;message&quot;: &quot;Project submitted successfully&quot;
+}</pre>
+</div></div><p><strong>Approve Project</strong> (POST <code>/api/v1/projects/{projectId}/approvals/approve</code>)</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">curl -X POST http://localhost:8080/api/v1/projects/P-001/approvals/approve \
+  -H &quot;Content-Type: application/json&quot; \
+  -H &quot;X-User-Id: user-002&quot; \
+  -d &#39;{
+        &quot;actorUserId&quot;: &quot;user-002&quot;,
+        &quot;comment&quot;: &quot;Approved by Faculty Dean&quot;
+      }&#39;</pre>
+</div></div><p>and expected result will be </p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+  &quot;projectId&quot;: &quot;P-001&quot;,
+  &quot;status&quot;: &quot;APPROVED&quot;,
+  &quot;comment&quot;: &quot;Approved by Faculty Dean&quot;
+}</pre>
+</div></div><p><strong>Add Staff Costs </strong>(POST <code>/api/v1/projects/{projectId}/staff-costs</code>)</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">curl -X POST http://localhost:8080/api/v1/projects/P-001/staff-costs \
+  -H &quot;Content-Type: application/json&quot; \
+  -d &#39;{
+        &quot;staffName&quot;: &quot;Dr. John Smith&quot;,
+        &quot;employmentType&quot;: &quot;Fixed-term&quot;,
+        &quot;category&quot;: &quot;Academic&quot;,
+        &quot;classification&quot;: &quot;Level B&quot;,
+        &quot;timeBasis&quot;: &quot;FTE&quot;,
+        &quot;salaryRate&quot;: 95000,
+        &quot;wageCost&quot;: 105000,
+        &quot;fullCost&quot;: 120000
+      }&#39;</pre>
+</div></div><p>and expected result will be </p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+  &quot;staffName&quot;: &quot;Dr. John Smith&quot;,
+  &quot;fullCost&quot;: 120000,
+  &quot;calculatedMultiplier&quot;: &quot;Full cost recovery applied&quot;
+}</pre>
+</div></div><p><strong>Retrieve Price Summary</strong> (GET <code>/api/v1/projects/{projectId}/price-summary</code>)</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">curl http://localhost:8080/api/v1/projects/P-001/price-summary</pre>
+</div></div><p>and expected result will be </p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+  &quot;currency&quot;: &quot;AUD&quot;,
+  &quot;totalCost&quot;: 150000,
+  &quot;indirectCostMultiplier&quot;: 1.2,
+  &quot;priceToCharge&quot;: 180000
+}</pre>
+</div></div><p><strong>Verify Approval Tracker</strong> (GET <code>/api/v1/projects/{projectId}/approvals</code>)</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">curl http://localhost:8080/api/v1/projects/P-001/approvals</pre>
+</div></div><p>and expected result will be </p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">[
+  {
+    &quot;actorUserId&quot;: &quot;user-001&quot;,
+    &quot;action&quot;: &quot;SUBMIT&quot;,
+    &quot;comment&quot;: &quot;Submitting project for review&quot;,
+    &quot;timestamp&quot;: &quot;2025-10-26T12:00:00Z&quot;
+  },
+  {
+    &quot;actorUserId&quot;: &quot;user-002&quot;,
+    &quot;action&quot;: &quot;APPROVE&quot;,
+    &quot;comment&quot;: &quot;Approved by Faculty Dean&quot;,
+    &quot;timestamp&quot;: &quot;2025-10-26T12:05:00Z&quot;
+  }
+]</pre>
+</div></div><p />
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Mar 03, 2026 12:01</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

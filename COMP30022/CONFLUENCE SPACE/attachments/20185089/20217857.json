@@ -1,0 +1,379 @@
+{
+  "users": [
+    {
+      "userid": "user_001",
+      "name": "Dr Alex Whiteman",
+      "email": "alex.whiteman@univ.edu",
+      "password": "hashed$...redacted",
+      "isAdmin": false,
+      "isApprover": false,
+      "username": "a.whiteman",
+      "displayName": "Alex Whiteman",
+      "pastProjects": [],
+      "dateJoined": "2024-02-12"
+    },
+    {
+      "userid": "user_002",
+      "name": "Sarah Liu",
+      "email": "sarah.liu@univ.edu",
+      "password": "hashed$...redacted",
+      "isAdmin": true,
+      "isApprover": true,
+      "username": "s.liu",
+      "displayName": "Sarah Liu (HoD)",
+      "pastProjects": [],
+      "dateJoined": "2023-11-30"
+    }
+  ],
+  "projectDetails": [
+    {
+      "projectID": "proj_2001",
+      "title": "AI-enabled Clinical Imaging Pilot",
+      "leadOrgID": "ORG-ENG-IT",
+      "funder": "INDUSTRY",
+      "department": "Department of Computing & Information Systems",
+      "faculty": "Faculty of Engineering & IT",
+      "scheme": "N/A",
+      "description": "Pilot study evaluating imaging workloads and workflow impacts.",
+      "startDate": "2026-01-01",
+      "endDate": "2028-12-31",
+      "currency": "AUD"
+    }
+  ],
+  "staffCosts": [
+    {
+      "id": "sc_01",
+      "projectID": "proj_2001",
+      "staffName": "Research Assistant",
+      "typeStaffCost": "Direct",
+      "employmentType": "Fixed term",
+      "category": "Professional",
+      "classification": "HEO6-3",
+      "timeBasis": "FTE",
+      "salaryRate": 82000.0,
+      "wageCost": 0.4,
+      "fullCost": 0
+    },
+    {
+      "id": "sc_02",
+      "projectID": "proj_2001",
+      "staffName": "Chief Investigator (CI)",
+      "typeStaffCost": "InKind",
+      "employmentType": "Continuing",
+      "category": "Academic",
+      "classification": "Level C-1",
+      "timeBasis": "FTE",
+      "salaryRate": 125000.0,
+      "wageCost": 0.1,
+      "fullCost": 0
+    },
+    {
+      "id": "sc_03",
+      "projectID": "proj_2001",
+      "staffName": "Casual Data Annotator",
+      "typeStaffCost": "Direct",
+      "employmentType": "Casual",
+      "category": "Casual",
+      "classification": "CASUAL-RA",
+      "timeBasis": "Hourly",
+      "salaryRate": 45.0,
+      "wageCost": 800,
+      "fullCost": 0
+    }
+  ],
+  "nonStaffCosts": [
+    {
+      "id": "nsc_01",
+      "projectID": "proj_2001",
+      "costCategory": "Equipment",
+      "expenseType": "Workstation (GPU)",
+      "description": "2 × High-end GPU workstations",
+      "costPerItem": 3800.0,
+      "quantity": 2,
+      "isInKind": false,
+      "addGST": true,
+      "indirectRateMultiplier": 0.1
+    },
+    {
+      "id": "nsc_02",
+      "projectID": "proj_2001",
+      "costCategory": "Consumables",
+      "expenseType": "Cloud storage & egress",
+      "description": "S3 storage + data egress",
+      "costPerItem": 500.0,
+      "quantity": 12,
+      "isInKind": false,
+      "addGST": true,
+      "indirectRateMultiplier": 0.0
+    }
+  ],
+  "priceSummary": [
+    {
+      "projectID": "proj_2001",
+      "currency": "AUD",
+      "totalCost": 0,
+      "amountUOM": "TOTAL",
+      "indirectCostMultiplier": 0.35,
+      "priceToCharge": 0,
+      "GSTIncluded": true
+    }
+  ],
+  "budgetForm": [
+    {
+      "projectID": "proj_2001",
+      "projectDetails": "proj_2001",
+      "projectSummary": {
+        "overview": "AI imaging pilot with industry partner",
+        "deliverables": [
+          "Dataset curation",
+          "Final report",
+          "Demonstration"
+        ]
+      },
+      "authorisationDetails": {
+        "preparedBy": "user_001",
+        "headOfDepartment": null,
+        "deanApprovalRequired": false,
+        "signatures": []
+      },
+      "staffBudget": [
+        "sc_01",
+        "sc_02",
+        "sc_03"
+      ],
+      "nonStaffBudget": [
+        "nsc_01",
+        "nsc_02"
+      ]
+    }
+  ],
+  "projectApplication": [
+    {
+      "projectid": "proj_2001",
+      "dateCreated": "2026-01-05",
+      "status": "draft"
+    }
+  ],
+  "approvalTracker": [
+    {
+      "projectid": "proj_2001",
+      "requestApproval": [],
+      "updatesStatus": [],
+      "currentStage": "draft"
+    }
+  ],
+  "lookupDataHandler": {
+    "salaryRates": [
+      {
+        "code": "HEO6-3",
+        "base": 82000.0
+      },
+      {
+        "code": "Level C-1",
+        "base": 125000.0
+      },
+      {
+        "code": "CASUAL-RA",
+        "hourly": 45.0
+      }
+    ],
+    "EBAMultiplier": 0.022,
+    "superRate": 0.115,
+    "leaveLoading": 0.175,
+    "payrollTax": 0.0485,
+    "workCover": 0.012,
+    "workingDays": 220,
+    "fullCostRecoveryMultiplier": 0.35,
+    "departmentList": [
+      {
+        "code": "CIS",
+        "name": "Department of Computing & Information Systems"
+      }
+    ],
+    "nonStaffCosts": [
+      {
+        "category": "Equipment",
+        "add10pctEligible": true
+      },
+      {
+        "category": "Consumables",
+        "add10pctEligible": false
+      }
+    ]
+  },
+  "use_case": {
+    "name": "Login → Create Project → Fill Details → Price → Submit → Approve",
+    "actors": [
+      "REQUESTOR: Dr Alex Whiteman (user_001)",
+      "APPROVER (HoD): Sarah Liu (user_002)"
+    ],
+    "preconditions": [
+      "Lookup tables seeded",
+      "User account for Dr Alex exists"
+    ],
+    "sequence": [
+      {
+        "step": 1,
+        "op": "LoginController.login",
+        "request": {
+          "username": "a.whiteman",
+          "password": "•••"
+        },
+        "expect": "Authenticated session for user_001"
+      },
+      {
+        "step": 2,
+        "op": "ProjectPage.createProject",
+        "request": {
+          "projectDetailsRef": "proj_2001"
+        },
+        "expect": "Project created with status=draft; linked to user_001"
+      },
+      {
+        "step": 3,
+        "op": "ProjectPage.updateProject",
+        "request": {
+          "staffCosts": [
+            "sc_01",
+            "sc_02",
+            "sc_03"
+          ],
+          "nonStaffCosts": [
+            "nsc_01",
+            "nsc_02"
+          ]
+        },
+        "expect": "Inputs validated; rolling totals available"
+      },
+      {
+        "step": 4,
+        "op": "BudgetForm.compose",
+        "request": {
+          "projectID": "proj_2001",
+          "staffBudget": [
+            "sc_01",
+            "sc_02",
+            "sc_03"
+          ],
+          "nonStaffBudget": [
+            "nsc_01",
+            "nsc_02"
+          ]
+        },
+        "expect": "BudgetForm ready for review/signature"
+      },
+      {
+        "step": 5,
+        "op": "PriceSummary.calculate",
+        "request": {
+          "projectID": "proj_2001",
+          "indirectCostMultiplier": 0.35,
+          "GSTIncluded": true
+        },
+        "mutations": [
+          {
+            "priceSummary[0].totalCost": 61200.0
+          },
+          {
+            "priceSummary[0].priceToCharge": 82700.0
+          }
+        ],
+        "expect": "Pricing snapshot computed"
+      },
+      {
+        "step": 6,
+        "op": "ProjectApplication.submit",
+        "request": {
+          "projectid": "proj_2001"
+        },
+        "mutations": [
+          {
+            "projectApplication[0].status": "submitted"
+          },
+          {
+            "approvalTracker[0].currentStage": "submitted"
+          }
+        ],
+        "expect": "Submission recorded; approvals can start"
+      },
+      {
+        "step": 7,
+        "op": "ApprovalTracker.requestApproval",
+        "request": {
+          "projectid": "proj_2001",
+          "by": "user_001",
+          "comment": "Ready for HoD review"
+        },
+        "mutations": [
+          {
+            "approvalTracker[0].requestApproval": [
+              {
+                "by": "user_001",
+                "at": "2026-01-06T09:30:00Z",
+                "comment": "Ready for HoD review"
+              }
+            ]
+          }
+        ],
+        "expect": "Approval requested"
+      },
+      {
+        "step": 8,
+        "op": "LoginController.login (approver)",
+        "request": {
+          "username": "s.liu",
+          "password": "•••"
+        },
+        "expect": "Authenticated session for user_002"
+      },
+      {
+        "step": 9,
+        "op": "ApprovalTracker.action",
+        "request": {
+          "projectid": "proj_2001",
+          "role": "HoD",
+          "actor": "user_002",
+          "action": "APPROVED",
+          "comment": "Proceed"
+        },
+        "mutations": [
+          {
+            "approvalTracker[0].updatesStatus": [
+              {
+                "role": "HoD",
+                "actor": "user_002",
+                "action": "APPROVED",
+                "at": "2026-01-07T11:00:00Z",
+                "comment": "Proceed"
+              }
+            ]
+          },
+          {
+            "approvalTracker[0].currentStage": "approved"
+          },
+          {
+            "projectApplication[0].status": "approved"
+          },
+          {
+            "budgetForm[0].authorisationDetails.headOfDepartment": "user_002"
+          },
+          {
+            "budgetForm[0].authorisationDetails.signatures": [
+              {
+                "role": "HoD",
+                "by": "user_002",
+                "at": "2026-01-07T11:00:00Z"
+              }
+            ]
+          }
+        ],
+        "expect": "Project approved and ready for export"
+      }
+    ],
+    "postconditions": [
+      "Project status = approved",
+      "Budget Form has HoD signature",
+      "Audit trail shows request + approval events"
+    ]
+  }
+}

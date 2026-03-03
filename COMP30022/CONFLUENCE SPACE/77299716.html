@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Group Twenty Two Project : Meeting 12 - 22/10</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Group Twenty Two Project</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Group-Twenty-Two-Project_622858.html">Group Twenty Two Project</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="._146866177.html">.</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="8847364.html">📅 Meetings</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="262342.html">📝 Team Meetings</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Group Twenty Two Project : Meeting 12 - 22/10
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Max Chivers</span>, last modified on Oct 22, 2025
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <hr/><h1 id="Meeting12-22/10-TeamMeetingTemplate"><strong>Team Meeting Template</strong></h1><p><strong>Date: </strong><time datetime="2025-10-22" class="date-past">22 Oct 2025</time><br/><strong>Facilitator: </strong>Max, Jay<br/><strong>Note Taker: </strong></p><hr/><h2 id="Meeting12-22/10-1.Agenda"><strong>1. Agenda</strong></h2><p><em><strong><u>Issues we still have:</u></strong></em></p><p>COSTS TAB</p><ul><li><p>Staff costs are calculated incorrectly with time.</p></li><li><p>Dynamic Years: currently hard coded the years into the system for a project at 3 years. There is a bunch of code that would need to change.</p></li></ul><p>PRICING TAB:</p><ul><li><p>there is a bug with the in kind changing table where if you click it quick enough it subtracts and goes negative, or it is not being added correctly. </p></li></ul><p>APPROVAL  (not going to do)</p><ul><li><p>there’s no approval yet</p></li><li><p>there’s no notifications  (delete notification icon)</p></li></ul><p>API / LOADING:</p><ul><li><p>not too sure if we should be caching and also loading form api backend</p></li><li><p>project service should manage all backend services</p></li><li><p>rcptEngine should then manage both caching and fetching from project service</p></li><li><p>not too sure if the fetched data would load properly as rcptEngine does <strong><u>prefer</u></strong> the api/backend, and only considers the cache, literally no code calling fetching anymore </p></li></ul><p><strong><u>Branches and features to finish (frontend):</u></strong></p><ol start="1"><li><p>Frontend Infastructure <strong><u>(max) </u></strong></p><ol start="1"><li><p>routing fixes</p></li><li><p>logic seperation in tabs (into the rcptEngine) </p></li><li><p>Dynamic years in cost page from project overview <strong><u>(1)</u></strong></p></li><li><p><strong><u>lookup table api (3)</u></strong> </p><ol start="1"><li><p>fixing the cost tab staffing costs (the time * full time hour and other options) </p></li></ol></li><li><p><strong><u>Linter fixes  (2)</u></strong></p></li><li><p><strong><u>Docker compiling (1)</u></strong></p></li><li><p>fix the title of the web page (where the tab is on chrome) </p></li></ol></li><li><p>Pricing page </p><ol start="1"><li><p>(see d (i) above)</p></li></ol></li><li><p>PDF Service <strong><u>(mitch [dependent on maxs first branch])</u></strong></p><ol start="1"><li><p>have the pdf services properly working and separated. </p></li><li><p>should include all of the same from a pdf example from the excel workbook </p><ol start="1"><li><p>so will need to use mitches lookup apis</p></li></ol></li></ol></li><li><p>Make <u>admin settings page</u> dynamic with api calls, saving data. Have a way to view current values? <strong>(needs to be linked with backend and with also mitch apis) </strong></p></li><li><p>Clean up / Documentation <strong><u>(Eugene)</u></strong></p><ol start="1"><li><p>add readme on:</p><ol start="1"><li><p>dynamic form</p></li><li><p>components</p></li><li><p>directory / repo structure</p></li></ol></li><li><p>Release Notes</p><ol start="1"><li><p>stable release and features it has</p></li><li><p>future release notes (good for handover documentation)</p></li></ol></li><li><p>Add commenting </p></li><li><p>Clean up code </p></li></ol></li><li><p>Connect backend with frontend <strong>(zac and jay) </strong></p><ol start="1"><li><p>api calls, making sure then it is all in /services folder as either a userService function or a projectService </p></li><li><p>dynamic form has the saved values in a json type of way so it might need to be changed a little in a function that sends the data to backend </p></li><li><p>make sure they json is saved how eugene needs it </p></li></ol></li></ol><p><strong><u>Deployment:</u></strong> (mitch and max) </p><ul><li><p>fix frontend</p></li><li><p>fix backend</p></li><li><p>integrate together</p></li><li><p>deploy</p></li><li><p>continuous deployment github actions </p></li></ul><p><strong><u>Final Admin and Assignments:</u></strong></p><ol start="1"><li><p>Progress Report 3 (26/10) </p></li><li><p>Team Product (checklist) (07/11) </p></li><li><p>Ethics Report (1000w) (12/11)</p></li><li><p>Individual report (2pgs) (07/11)</p></li><li><p>Handover ( &amp; handover documentation) </p></li><li><p>Final Confluence Finishing</p></li></ol><hr/><h2 id="Meeting12-22/10-2.MeetingMinutes"><strong>2. Meeting Minutes</strong></h2><p><em>Record key points, discussions, and decisions from the meeting here:</em></p><hr/><h2 id="Meeting12-22/10-3.Decisions&amp;Actions"><strong>3. Decisions &amp; Actions</strong></h2><div class="table-wrap"><table data-table-width="760" data-layout="default" data-local-id="b788cd1b-6878-4f61-9293-c72c6da948ff" class="confluenceTable"><tbody><tr><th class="confluenceTh"><p>Decision / Action</p></th><th class="confluenceTh"><p>Owner</p></th><th class="confluenceTh"><p>Deadline / Next Meeting</p></th></tr><tr><td class="confluenceTd"><p>max</p></td><td class="confluenceTd"><p>infrastructure branch</p></td><td class="confluenceTd"><p>friday</p></td></tr><tr><td class="confluenceTd"><p>mitch</p></td><td class="confluenceTd"><p>pdf service</p></td><td class="confluenceTd"><p>friday</p></td></tr><tr><td class="confluenceTd"><p>zac</p></td><td class="confluenceTd"><p>ethics report</p></td><td class="confluenceTd"><p><time datetime="2025-11-12" class="date-past">12 Nov 2025</time></p></td></tr><tr><td class="confluenceTd"><p>eugene</p></td><td class="confluenceTd"><p>userID from firebase<br/>handover documentation</p></td><td class="confluenceTd"><p>friday<br/>sunday</p></td></tr><tr><td class="confluenceTd"><p>zac + jay</p></td><td class="confluenceTd"><p>connect front and back end</p></td><td class="confluenceTd"><p>saturday</p></td></tr><tr><td class="confluenceTd"><p>mitch + max</p></td><td class="confluenceTd"><p>deployment</p></td><td class="confluenceTd"><p>sunday</p></td></tr><tr><td class="confluenceTd"><p>max </p></td><td class="confluenceTd"><p>progress report 3</p></td><td class="confluenceTd"><p>sunday</p></td></tr></tbody></table></div><ul><li><p>Include any agreed-upon actions, who is responsible, and when it should be completed.</p></li></ul><hr/><h2 id="Meeting12-22/10-4.NotesforNextMeeting"><strong>4. Notes for Next Meeting</strong></h2><ul><li><p>Items to carry forward or discuss in the next meeting:<br/>1.</p></li></ul><hr/><p />
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Mar 03, 2026 12:01</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

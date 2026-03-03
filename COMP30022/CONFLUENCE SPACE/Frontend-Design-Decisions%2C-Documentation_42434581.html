@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Group Twenty Two Project : Frontend Design Decisions, Documentation</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Group Twenty Two Project</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Group-Twenty-Two-Project_622858.html">Group Twenty Two Project</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="._146866177.html">.</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="23986177.html">&lt;/&gt; Development Documentation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Frontend_42532875.html">Frontend</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Group Twenty Two Project : Frontend Design Decisions, Documentation
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Max Chivers</span> on Sept 29, 2025
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>✱could be used as an <code>.md</code> file in the repo if necessary✱ </p><p>✱most of this will be implemented in the frontend skeleton branch✱  </p><style type='text/css'>/*<![CDATA[*/
+div.rbtoc1772499662635 {padding: 0px;}
+div.rbtoc1772499662635 ul {list-style: none;margin-left: 0px;}
+div.rbtoc1772499662635 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class='toc-macro rbtoc1772499662635'>
+<ul class='toc-indentation'>
+<li><a href='#FrontendDesignDecisions,Documentation-Decision1—UIComponentLibrarySelection'>Decision 1 — UI Component Library Selection</a></li>
+<li><a href='#FrontendDesignDecisions,Documentation-Decision2—FormArchitecture'>Decision 2 — Form Architecture</a></li>
+<li><a href='#FrontendDesignDecisions,Documentation-Decision3—UseProjectContextasanIntermediateLayer'>Decision 3 — Use Project Context as an Intermediate Layer</a></li>
+<li><a href='#FrontendDesignDecisions,Documentation-Decision4—DynamicFormRenderingStrategy'>Decision 4 — Dynamic Form Rendering Strategy</a></li>
+<li><a href='#FrontendDesignDecisions,Documentation-Decision5—DataTableIntegrationwithshadcn/ui'>Decision 5 — Data Table Integration with shadcn/ui</a></li>
+<li><a href='#FrontendDesignDecisions,Documentation-Decision6—PageRenderingStrategy'>Decision 6 — Page Rendering Strategy</a></li>
+<li><a href='#FrontendDesignDecisions,Documentation-Decision7—PageContentLayoutandResponsiveSystem'>Decision 7 — Page Content Layout and Responsive System</a></li>
+<li><a href='#FrontendDesignDecisions,Documentation-Decision8—RoutingArchitecture'>Decision 8 — Routing Architecture</a></li>
+<li><a href='#FrontendDesignDecisions,Documentation-Decision9—DirectoryStructure'>Decision 9 — Directory Structure</a></li>
+</ul>
+</div><hr/><h3 id="FrontendDesignDecisions,Documentation-Decision1—UIComponentLibrarySelection">Decision 1 — UI Component Library Selection</h3><p><strong>Context:</strong></p><p>The research costing and pricing tool requires a consistent, accessible UI library with form components, data tables, and interactive elements. Need rapid development capability while maintaining design consistency across the application.</p><p><strong>Options Considered:</strong></p><ul><li><p>Option A — Build custom components from scratch</p></li><li><p>Option B — Use shadcn/ui as primary library with Radix primitives</p></li><li><p>Option C — Use alternative libraries like Chakra UI or Material-UI</p></li></ul><p><strong>Decision:</strong></p><ul><li><p>Use shadcn/ui as the main component library</p></li><li><p>Implement custom wrappers around shadcn components for form handling</p></li></ul><p><strong>Consequences:</strong></p><ul><li><p>Rapid development of forms, dialogs, tables, inputs with consistent styling</p></li><li><p>Accessible components by default</p></li><li><p>Need to learn shadcn/ui patterns and Tailwind utility classes</p></li><li><p>Limited to Tailwind's core utility classes (no custom compilation) which will keep the design consistent.</p></li></ul><p><strong>Notes:</strong></p><p>This allows for consistent CSS styling using the below theme:</p><ul><li><p><strong>default theme:</strong> <a class="external-link" data-card-appearance="inline" href="https://ui.shadcn.com/themes" rel="nofollow">https://ui.shadcn.com/themes</a> </p></li><li><p><strong>documentation here:</strong> <a class="external-link" data-card-appearance="inline" href="https://ui.shadcn.com/docs/theming" rel="nofollow">https://ui.shadcn.com/docs/theming</a> </p></li></ul><p>Link to documentation of set up:</p><ul><li><p><a class="external-link" data-card-appearance="inline" href="https://ui.shadcn.com/docs/installation/vite" rel="nofollow">https://ui.shadcn.com/docs/installation/vite</a> </p></li></ul><p>Optionally, we could use some fo their typography:</p><ul><li><p><strong>typography examples here:</strong> <a class="external-link" data-card-appearance="inline" href="https://ui.shadcn.com/docs/components/typography" rel="nofollow">https://ui.shadcn.com/docs/components/typography</a> </p></li></ul><p>Components used, with a link to their documentation (which is simple to understand):</p><div class="table-wrap"><table data-layout="default" data-local-id="264b14de-722e-45e0-8c33-b7dc0734954d" class="confluenceTable"><tbody><tr><th class="confluenceTh"><p>Shadcn Component</p></th><th class="confluenceTh"><p>Example use case</p></th><th class="confluenceTh"><p>URL</p></th></tr><tr><td class="confluenceTd"><p>Alert </p></td><td class="confluenceTd"><p>Section header or important notice </p></td><td class="confluenceTd"><p><a class="external-link" data-card-appearance="inline" href="https://ui.shadcn.com/docs/components/alert" rel="nofollow">https://ui.shadcn.com/docs/components/alert</a>  </p></td></tr><tr><td class="confluenceTd"><p>Alert Dialog </p></td><td class="confluenceTd"><p>Confirm deletion / destructive confirmation modal </p></td><td class="confluenceTd"><p><a class="external-link" data-card-appearance="inline" href="https://ui.shadcn.com/docs/components/alert-dialog" rel="nofollow">https://ui.shadcn.com/docs/components/alert-dialog</a>  </p></td></tr><tr><td class="confluenceTd"><p>Aspect Ratio </p></td><td class="confluenceTd"><p>Keep media / card aspect consistent (fixed width × height) </p></td><td class="confluenceTd"><p><a class="external-link" data-card-appearance="inline" href="https://ui.shadcn.com/docs/components/aspect-ratio" rel="nofollow">https://ui.shadcn.com/docs/components/aspect-ratio</a>  </p></td></tr><tr><td class="confluenceTd"><p>Badge </p></td><td class="confluenceTd"><p>Tags in tables or status on dashboard cards </p></td><td class="confluenceTd"><p><a class="external-link" data-card-appearance="inline" href="https://ui.shadcn.com/docs/components/badge" rel="nofollow">https://ui.shadcn.com/docs/components/badge</a>  </p></td></tr><tr><td class="confluenceTd"><p>Button </p></td><td class="confluenceTd"><p>Actions / CTA throughout the app </p></td><td class="confluenceTd"><p><a class="external-link" data-card-appearance="inline" href="https://ui.shadcn.com/docs/components/button" rel="nofollow">https://ui.shadcn.com/docs/components/button</a>  </p></td></tr><tr><td class="confluenceTd"><p>Card </p></td><td class="confluenceTd"><p>Container for grouped content / dashboard card </p></td><td class="confluenceTd"><p><a class="external-link" data-card-appearance="inline" href="https://ui.shadcn.com/docs/components/card" rel="nofollow">https://ui.shadcn.com/docs/components/card</a>  </p></td></tr><tr><td class="confluenceTd"><p>Checkbox </p></td><td class="confluenceTd"><p>Boolean toggles in forms or filters </p></td><td class="confluenceTd"><p><a class="external-link" data-card-appearance="inline" href="https://ui.shadcn.com/docs/components/checkbox" rel="nofollow">https://ui.shadcn.com/docs/components/checkbox</a>  </p></td></tr><tr><td class="confluenceTd"><p>Combobox </p></td><td class="confluenceTd"><p>Select from a large set / searchable dropdown (has extra deps) </p></td><td class="confluenceTd"><p><a class="external-link" data-card-appearance="inline" href="https://ui.shadcn.com/docs/components/combobox" rel="nofollow">https://ui.shadcn.com/docs/components/combobox</a>  </p></td></tr><tr><td class="confluenceTd"><p>Data Table </p></td><td class="confluenceTd"><p>Interactive, dynamic tables with state-driven features </p></td><td class="confluenceTd"><p><a class="external-link" data-card-appearance="inline" href="https://ui.shadcn.com/docs/components/data-table" rel="nofollow">https://ui.shadcn.com/docs/components/data-table</a>  </p></td></tr><tr><td class="confluenceTd"><p>Date Picker </p></td><td class="confluenceTd"><p>Picking single dates or ranges </p></td><td class="confluenceTd"><p><a class="external-link" data-card-appearance="inline" href="https://ui.shadcn.com/docs/components/date-picker" rel="nofollow">https://ui.shadcn.com/docs/components/date-picker</a>  </p></td></tr><tr><td class="confluenceTd"><p>Dialog </p></td><td class="confluenceTd"><p>Focused temporary interactions (e.g. row edit modal) </p></td><td class="confluenceTd"><p><a class="external-link" data-card-appearance="inline" href="https://ui.shadcn.com/docs/components/dialog" rel="nofollow">https://ui.shadcn.com/docs/components/dialog</a>  </p></td></tr><tr><td class="confluenceTd"><p>Form (React Hook Form example) </p></td><td class="confluenceTd"><p>Form primitives integrated with react-hook-form (see justification) </p></td><td class="confluenceTd"><p><a class="external-link" data-card-appearance="inline" href="https://ui.shadcn.com/docs/components/form" rel="nofollow">https://ui.shadcn.com/docs/components/form</a>  </p></td></tr><tr><td class="confluenceTd"><p>Input </p></td><td class="confluenceTd"><p>Text inputs (including disabled, file, labelled variants) </p></td><td class="confluenceTd"><p><a class="external-link" data-card-appearance="inline" href="https://ui.shadcn.com/docs/components/input" rel="nofollow">https://ui.shadcn.com/docs/components/input</a>  </p></td></tr><tr><td class="confluenceTd"><p>Label </p></td><td class="confluenceTd"><p>Field labels / small inline labels </p></td><td class="confluenceTd"><p><a class="external-link" data-card-appearance="inline" href="https://ui.shadcn.com/docs/components/label" rel="nofollow">https://ui.shadcn.com/docs/components/label</a>  </p></td></tr><tr><td class="confluenceTd"><p>Navigation Menu </p></td><td class="confluenceTd"><p>Navigation bar / project menus </p></td><td class="confluenceTd"><p><a class="external-link" data-card-appearance="inline" href="https://ui.shadcn.com/docs/components/navigation-menu" rel="nofollow">https://ui.shadcn.com/docs/components/navigation-menu</a>  </p></td></tr><tr><td class="confluenceTd"><p>Popover </p></td><td class="confluenceTd"><p>Quick adjustments or contextual controls </p></td><td class="confluenceTd"><p><a class="external-link" data-card-appearance="inline" href="https://ui.shadcn.com/docs/components/popover" rel="nofollow">https://ui.shadcn.com/docs/components/popover</a>  </p></td></tr><tr><td class="confluenceTd"><p>Radio Group </p></td><td class="confluenceTd"><p>Choose one option from a small set </p></td><td class="confluenceTd"><p><a class="external-link" data-card-appearance="inline" href="https://ui.shadcn.com/docs/components/radio-group" rel="nofollow">https://ui.shadcn.com/docs/components/radio-group</a>  </p></td></tr><tr><td class="confluenceTd"><p>Scroll Area </p></td><td class="confluenceTd"><p>Scrollable container (useful for constrained table areas) </p></td><td class="confluenceTd"><p><a class="external-link" data-card-appearance="inline" href="https://ui.shadcn.com/docs/components/scroll-area" rel="nofollow">https://ui.shadcn.com/docs/components/scroll-area</a>  </p></td></tr><tr><td class="confluenceTd"><p>Select </p></td><td class="confluenceTd"><p>Standard dropdown selection </p></td><td class="confluenceTd"><p><a class="external-link" data-card-appearance="inline" href="https://ui.shadcn.com/docs/components/select" rel="nofollow">https://ui.shadcn.com/docs/components/select</a>  </p></td></tr><tr><td class="confluenceTd"><p>Separator </p></td><td class="confluenceTd"><p>Visual divider between sections (e.g. table ⇢ form) </p></td><td class="confluenceTd"><p><a class="external-link" data-card-appearance="inline" href="https://ui.shadcn.com/docs/components/separator" rel="nofollow">https://ui.shadcn.com/docs/components/separator</a>  </p></td></tr><tr><td class="confluenceTd"><p>Skeleton </p></td><td class="confluenceTd"><p>Loading placeholders while content loads </p></td><td class="confluenceTd"><p><a class="external-link" data-card-appearance="inline" href="https://ui.shadcn.com/docs/components/skeleton" rel="nofollow">https://ui.shadcn.com/docs/components/skeleton</a>  </p></td></tr><tr><td class="confluenceTd"><p>Slider </p></td><td class="confluenceTd"><p>Numeric range selector (e.g. margin %) </p></td><td class="confluenceTd"><p><a class="external-link" data-card-appearance="inline" href="https://ui.shadcn.com/docs/components/slider" rel="nofollow">https://ui.shadcn.com/docs/components/slider</a>  </p></td></tr><tr><td class="confluenceTd"><p>Sonner </p></td><td class="confluenceTd"><p>Toast/notifications (announce updates, approvals) </p></td><td class="confluenceTd"><p><a class="external-link" data-card-appearance="inline" href="https://ui.shadcn.com/docs/components/sonner" rel="nofollow">https://ui.shadcn.com/docs/components/sonner</a>  </p></td></tr><tr><td class="confluenceTd"><p>Switch </p></td><td class="confluenceTd"><p>Toggle control for boolean settings </p></td><td class="confluenceTd"><p><a class="external-link" data-card-appearance="inline" href="https://ui.shadcn.com/docs/components/switch" rel="nofollow">https://ui.shadcn.com/docs/components/switch</a>  </p></td></tr><tr><td class="confluenceTd"><p>Table </p></td><td class="confluenceTd"><p>Static table for non-interactive data display </p></td><td class="confluenceTd"><p><a class="external-link" data-card-appearance="inline" href="https://ui.shadcn.com/docs/components/table" rel="nofollow">https://ui.shadcn.com/docs/components/table</a>  </p></td></tr><tr><td class="confluenceTd"><p>Tabs </p></td><td class="confluenceTd"><p>Internal tab panels (e.g. research / costing tabs) </p></td><td class="confluenceTd"><p><a class="external-link" data-card-appearance="inline" href="https://ui.shadcn.com/docs/components/tabs" rel="nofollow">https://ui.shadcn.com/docs/components/tabs</a>  </p></td></tr><tr><td class="confluenceTd"><p>Textarea </p></td><td class="confluenceTd"><p>Longer multi-line text inputs / descriptions </p></td><td class="confluenceTd"><p><a class="external-link" data-card-appearance="inline" href="https://ui.shadcn.com/docs/components/textarea" rel="nofollow">https://ui.shadcn.com/docs/components/textarea</a>  </p></td></tr><tr><td class="confluenceTd"><p>Tooltip </p></td><td class="confluenceTd"><p>Hover / focus help text for UI affordances </p></td><td class="confluenceTd"><p><a class="external-link" data-card-appearance="inline" href="https://ui.shadcn.com/docs/components/tooltip" rel="nofollow">https://ui.shadcn.com/docs/components/tooltip</a>  </p></td></tr><tr><td class="confluenceTd"><p>Calendar </p></td><td class="confluenceTd"><p>Full calendar view / date navigation </p></td><td class="confluenceTd"><p><a class="external-link" data-card-appearance="inline" href="https://ui.shadcn.com/docs/components/calendar" rel="nofollow">https://ui.shadcn.com/docs/components/calendar</a>  </p></td></tr></tbody></table></div><h3 id="FrontendDesignDecisions,Documentation-Decision2—FormArchitecture">Decision 2 — Form Architecture</h3><p><strong>Context:</strong></p><p>The application requires complex forms for project details, staff costs, equipment, and other research costing inputs. Need efficient validation, error handling, and state management across multiple form sections.</p><p><strong>Options Considered:</strong></p><ul><li><p>Option A — Manual form state with useState for each field</p></li><li><p>Option B — React Hook Form with shadcn Form components and Zod validation</p></li></ul><p><strong>Decision:</strong></p><ul><li><p>Use React Hook Form for performance (uncontrolled inputs, minimal re-renders)</p></li><li><p>Use shadcn's Form, FormField, FormItem, FormControl, FormMessage primitives</p></li><li><p><strong>Use Zod for validation and type derivation</strong></p></li><li><p>Create reusable field wrapper components (FormTextInput, FormSelect, FormTextarea)</p></li></ul><p><strong>Consequences:</strong></p><ul><li><p>Excellent performance with uncontrolled inputs</p></li><li><p>Consistent styling and accessibility via shadcn primitives</p></li><li><p>Strong type safety with Zod schemas</p></li><li><p>Reusable components reduce code duplication</p></li><li><p>Learning curve for React Hook Form patterns</p></li></ul><p><strong>Notes:</strong></p><p>Documentation can be found here: <a class="external-link" data-card-appearance="inline" href="https://ui.shadcn.com/docs/components/form" rel="nofollow">https://ui.shadcn.com/docs/components/form</a> </p><p>→ Reference this for any knowledge gaps. There are some good examples of Text Input Forms</p><p>Structure of the shadcn Form wrapper is:</p><ul><li><p><code>Form</code> = context provider for RHF state.</p></li><li><p><code>FormField</code> = connects UI → RHF for one field.</p></li><li><p><code>field</code> = props from RHF (<code>value</code>, <code>onChange</code>, <code>onBlur</code>) → binds Input to state and can be changed to implement different states.</p></li><li><p><code>onSubmit</code> = gets all form data at once no need to manually track <code>useState</code>.</p></li></ul><p>By creating our own wrappers for inputs with Shadcn Forms allows us to build quickly by using only set out and well tested forms that we have made. </p><p>It will give rise to a simple Data Flow. Here’s the end-to-end flow when a user types into your form:</p><ol start="1"><li><p>User types into <code>&lt;Input&gt;</code> → RHF updates field state.</p></li><li><p>Submit button pressed → <code>onSubmit(values)</code> runs.</p></li><li><p>Save the data, an option could be:</p><ol start="1"><li><p>(TBD) <code>setProject(values)</code> updates global context → any other page or component reading from it updates instantly.</p></li><li><p>(TBD) <code>saveProjectDetails(values)</code> sends JSON → backend API.</p></li></ol></li><li><p>Backend saves → returns confirmation or new data.</p></li><li><p>(Optional) Context updates with backend response if needed.</p></li></ol><p><strong>Going through an example and breaking it down:</strong></p><p>This is a reusable input wrapper around ShadCN + RHF so you don’t repeat <code>FormItem</code> boilerplate everywhere.  It is not to be used for usage, as we will see how to construct the actual component we can use. </p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">type TextInputProps = {
+  name: string;             // field key in the form data object
+  label: string;            // label shown to user
+  placeholder?: string;     // placeholder text
+  required?: boolean;       // optional HTML validation
+  control: any;             // the RHF &quot;brain&quot; controlling this field
+};
+
+export const FormTextInput = ({
+  name,
+  label,
+  placeholder,
+  required,
+  control,
+}: TextInputProps) =&gt; (
+  &lt;FormField
+    control={control}         // connect to RHF state manager
+    name={name}               // register this field under that name
+    render={({ field }) =&gt; ( // field = hooks to read/write state
+      &lt;FormItem&gt;
+        &lt;FormLabel&gt;{label}&lt;/FormLabel&gt;
+        &lt;FormControl&gt;
+          &lt;Input {...field} placeholder={placeholder} required={required} /&gt;
+        &lt;/FormControl&gt;
+        &lt;FormMessage /&gt;       // show validation errors for this field
+      &lt;/FormItem&gt;
+    )}
+  /&gt;
+);
+</pre>
+</div></div><p>→ properties you pass into component: </p><ul><li><p><code>control</code>: comes from <code>useForm()</code> (RHF). So when you pass <code>&lt;FormField control={form.control} name=&quot;title&quot; /&gt;</code> youre telling RHF that “This input should be registered under the name <code>title</code>, and I want you to manage its value, validation, and lifecycle.”</p></li><li><p><code>name</code>: the key name in your form data (<code>&quot;projectName&quot;</code>, <code>&quot;description&quot;</code>, etc.).</p></li><li><p><code>label</code>: user-facing label text.</p></li><li><p><code>placeholder</code>: optional hint text.</p></li></ul><p>→ the render callback gives you a special <code>field</code> object:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">field = {
+  onChange: (e) =&gt; void,   // Updates RHF state
+  onBlur: () =&gt; void,      // Marks field as touched
+  value: string,           // Current field value
+  ref: Ref&lt;HTMLInputElement&gt;  // So RHF can focus, validate, etc.
+}
+</pre>
+</div></div><p>We can then use this to make a form with values that can be used to actually obtain data and do stuff with it automatically:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">// components/forms/ProjectForm.tsx
+import { useForm } from &quot;react-hook-form&quot;;
+import { TextInput } from &quot;@/components/forms/TextInput&quot;;
+import { Button } from &quot;@/components/ui/button&quot;;
+import { useProject } from &quot;@/context/ProjectContext&quot;;
+
+type ProjectFormValues = {
+  title: string;
+  description: string;
+};
+
+export const ProjectForm = () =&gt; {
+  const { updateProject, saveProject } = useProject();
+  
+  const form = useForm&lt;ProjectFormValues&gt;({
+    defaultValues: {
+      title: &quot;&quot;,
+      description: &quot;&quot;,
+    },
+  });
+
+  // 1. Generalised onSubmit: update context instead of saving directly
+  const onSubmit = (values: ProjectFormValues) =&gt; {
+    updateProject(values);     // merge values into global state
+    console.log(&quot;Saved locally:&quot;, values);
+  };
+
+  return (
+    &lt;Form {...form}&gt;
+      &lt;form onSubmit={form.handleSubmit(onSubmit)} className=&quot;space-y-4&quot;&gt;
+        &lt;TextInput control={form.control} name=&quot;title&quot; label=&quot;Project Title&quot; placeholder=&quot;My Research Tool&quot; /&gt;
+        &lt;TextInput control={form.control} name=&quot;description&quot; label=&quot;Description&quot; placeholder=&quot;Brief project summary&quot; /&gt;
+
+        &lt;div className=&quot;flex gap-4&quot;&gt;
+          &lt;Button type=&quot;submit&quot;&gt;Save Locally&lt;/Button&gt;
+          &lt;Button type=&quot;button&quot; onClick={saveProject} variant=&quot;secondary&quot;&gt;
+            Save to API
+          &lt;/Button&gt;
+        &lt;/div&gt;
+      &lt;/form&gt;
+    &lt;/Form&gt;
+  );
+};
+</pre>
+</div></div><p>Going through this example: </p><ol start="1"><li><p>The onSubmit <code>values</code> look like this JSON structure</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+  &quot;title&quot;: &quot;Research Tool Prototype&quot;,
+  &quot;description&quot;: &quot;A tool for budgeting research&quot;
+}
+</pre>
+</div></div></li></ol><p>All this gives more functionality like having many types of output structures for a single form. </p><div class="table-wrap"><table data-layout="default" data-local-id="2850f97d-cdfd-416a-95f8-ec8eff60f2c7" class="confluenceTable"><tbody><tr><th class="confluenceTh"><p>Form Type</p></th><th class="confluenceTh"><p>Example Use</p></th><th class="confluenceTh"><p>Output Structure</p></th><th class="confluenceTh"><p>How the Form Fields Are Defined / Typed</p></th></tr><tr><td class="confluenceTd"><p>Single input </p></td><td class="confluenceTd"><p>Project title </p></td><td class="confluenceTd"><p><code>{ &quot;title&quot;: &quot;Prototype&quot; }</code> </p></td><td class="confluenceTd"><p><code>&lt;FormField name=&quot;title&quot; /&gt;</code> → single text input; user types <code>&quot;Prototype&quot;</code> </p></td></tr><tr><td class="confluenceTd"><p>Multiple inputs (flat) </p></td><td class="confluenceTd"><p>Title, description, owner </p></td><td class="confluenceTd"><p><code>{ &quot;title&quot;: &quot;...&quot;, &quot;description&quot;: &quot;...&quot;, &quot;owner&quot;: &quot;...&quot; }</code> </p></td><td class="confluenceTd"><p><code>&lt;FormField name=&quot;title&quot; /&gt;</code>, <code>&lt;FormField name=&quot;description&quot; /&gt;</code>, <code>&lt;FormField name=&quot;owner&quot; /&gt;</code>; each input corresponds to a key in the object </p></td></tr><tr><td class="confluenceTd"><p>Nested object </p></td><td class="confluenceTd"><p>Owner info </p></td><td class="confluenceTd"><p><code>{ &quot;owner&quot;: { &quot;name&quot;: &quot;...&quot;, &quot;email&quot;: &quot;...&quot; } }</code> </p></td><td class="confluenceTd"><p>Use dotted names: <code>&lt;FormField name=&quot;owner.name&quot; /&gt;</code>, <code>&lt;FormField name=&quot;owner.email&quot; /&gt;</code>; RHF parses these into a nested object </p></td></tr><tr><td class="confluenceTd"><p>Array of fields </p></td><td class="confluenceTd"><p>Task list </p></td><td class="confluenceTd"><p><code>{ &quot;tasks&quot;: [{ &quot;title&quot;: &quot;...&quot; }, {...}] }</code> </p></td><td class="confluenceTd"><p>Use array notation: <code>&lt;FormField name=&quot;tasks[0].title&quot; /&gt;</code>, <code>&lt;FormField name=&quot;tasks[1].title&quot; /&gt;</code>; each array index becomes an element in the output array </p></td></tr><tr><td class="confluenceTd"><p>Mixed nested + array </p></td><td class="confluenceTd"><p>Owner + tasks </p></td><td class="confluenceTd"><p><code>{ &quot;owner&quot;: {...}, &quot;tasks&quot;: [...] }</code> </p></td><td class="confluenceTd"><p>Combine nested and array fields: <code>&lt;FormField name=&quot;owner.name&quot; /&gt;</code>, <code>&lt;FormField name=&quot;tasks[0].title&quot; /&gt;</code>; results in nested object plus array structure </p></td></tr></tbody></table></div><h3 id="FrontendDesignDecisions,Documentation-Decision3—UseProjectContextasanIntermediateLayer">Decision 3 — Use Project Context as an Intermediate Layer</h3><p><strong>Context:</strong></p><p>We want form data to be accessible globally in the app (across pages and components) without prop drilling. The backend API may not be ready yet, or we may want to decouple UI logic from persistence.</p><p><strong>Options Considered:</strong></p><ul><li><p><strong>Direct API calls from the form:</strong> each form field would save directly to the backend.</p></li><li><p><strong>Local state only:</strong> store values in the component; other pages/components cannot access it.</p></li><li><p><strong>Global Project Context:</strong> store all form data in context; UI reads/writes from it, API can be added later.</p></li></ul><p><strong>Decision:</strong></p><p>Use a <strong>Project Context</strong> (<code>ProjectContext</code>) to store all project-related form data.</p><p><strong>Consequences / Benefits:</strong></p><ul><li><p>UI decoupled from persistence: forms and components don’t care if data is in memory or sent to API.</p></li><li><p>Global access: any page/component can read or modify project data.</p></li><li><p>!! Easy API integration later: only <code>ProjectContext</code> needs modification; forms remain unchanged.</p></li><li><p>Immediate reactivity: components reading context re-render automatically when data changes.</p></li></ul><p><strong>Notes:</strong></p><p>The flow will look something like this, where anything to do wiht context or data flow is from the ProjectContext file:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">User Input → Form Fields → onSubmit → updateProject() → ProjectContext
+                                   ↓
+                         Optional API saveProject()</pre>
+</div></div><p>We can make sure this is the one truth for data integration, keeping it seperate from everything for now.</p><p>!! <strong>IMPORTANT NOTE:</strong> it must match the same structure as the api is expecting (as in the JSON structure). </p><p>A brief example of how this project context structure will integrate with a <code>Form</code>:</p><p>A content file <code>ProjectContext.tsx</code>:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">type ProjectData = {
+  name: string; // example field; can expand with more fields like author, tasks, etc.
+};
+
+type ProjectContextType = {
+  project: ProjectData;
+  setProject: (data: ProjectData) =&gt; void;
+};
+
+const ProjectContext = createContext&lt;ProjectContextType | undefined&gt;(undefined);
+
+export const useProject = () =&gt; {
+  const context = useContext(ProjectContext);
+  if (!context) throw new Error(&quot;useProject must be used inside ProjectProvider&quot;);
+  return context;
+};
+
+export const ProjectProvider = ({ children }: { children: ReactNode }) =&gt; {
+  // Global state for project
+  const [project, setProject] = useState&lt;ProjectData&gt;({ name: &quot;&quot; });
+
+  return (
+    &lt;ProjectContext.Provider value={{ project, setProject }}&gt;
+      {children}
+    &lt;/ProjectContext.Provider&gt;
+  );
+};
+</pre>
+</div></div><p>Explanation:</p><ul><li><p><code>ProjectContext</code> → holds the global project state.</p></li><li><p><code>useProject()</code> → custom hook to access context anywhere.</p></li><li><p><code>setProject()</code> → function to update the project globally.</p></li></ul><p>A simple form using the Project Context to save its data:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">export const SimpleInputForm = () =&gt; {
+  const { setProject } = useProject(); // access global state
+
+  // create form with React Hook Form
+  const form = useForm&lt;{ name: string }&gt;({ defaultValues: { name: &quot;&quot; } });
+
+  // onSubmit updates global project context
+  const onSubmit = (values: { name: string }) =&gt; {
+    setProject(values);       // &lt;&lt; merge typed value into global state
+    console.log(&quot;Saved:&quot;, values);
+  };
+
+  return (
+    &lt;Form {...form}&gt;
+      &lt;form onSubmit={form.handleSubmit(onSubmit)}&gt;
+
+        {/* Single input field */}
+        &lt;FormField
+          control={form.control}   // connects input to form state
+          name=&quot;name&quot;
+          render={({ field }) =&gt; (
+            &lt;FormItem&gt;
+              &lt;FormLabel&gt;Your Name&lt;/FormLabel&gt;
+              &lt;FormControl&gt;
+                &lt;Input {...field} /&gt;  {/* controlled input */}
+              &lt;/FormControl&gt;
+              &lt;FormMessage /&gt;        {/* shows validation errors */}
+            &lt;/FormItem&gt;
+          )}
+        /&gt;
+
+        &lt;Button type=&quot;submit&quot;&gt;Save&lt;/Button&gt;
+      &lt;/form&gt;
+    &lt;/Form&gt;
+  );
+};</pre>
+</div></div><p>Explanation of the Flow:</p><ol start="1"><li><p>User types → Form updates RHF internal state.</p></li><li><p>User submits → <code>handleSubmit</code> gathers the current field values.</p></li><li><p><code>onSubmit</code> receives <code>{ name: &quot;typed value&quot; }</code>.</p></li><li><p>Call <code>setProject(values)</code> → updates the global context state.</p></li><li><p>Any component using <code>useProject()</code> can now read the updated <code>project.name</code>.</p></li></ol><h3 id="FrontendDesignDecisions,Documentation-Decision4—DynamicFormRenderingStrategy">Decision 4 — Dynamic Form Rendering Strategy</h3><p><strong>Context:</strong></p><p>Multiple pages require similar form structures with different field configurations. Need to avoid duplicating form rendering logic while maintaining flexibility to modify form schemas without code changes. Forms should support basic fields, repeatable sections, and validation.</p><p><strong>Options Considered:</strong></p><ul><li><p>Option A — Hard-coded forms for each page with duplicated rendering logic like a tsx component per form.</p></li><li><p>Option B — Full block-driven system with complex metadata and layout management</p></li><li><p>Option C — Schema-driven forms with page-level JSON configurations and shared DynamicForm renderer</p></li></ul><p><strong>Decision:</strong></p><ul><li><p>Implement schema-driven forms with per-page JSON configurations</p></li><li><p>Create a lightweight DynamicForm component that renders fields based on schema</p></li><li><p>Keep schemas data-focused (fields + validation) without layout information</p></li><li><p>Use existing shadcn field wrappers (FormTextInput, FormSelect, FormNumberInput)</p></li><li><p>Support repeatable sections using React Hook Form's useFieldArray</p></li><li><p>Page components control layout and positioning of forms</p></li></ul><p><strong>Consequences:</strong></p><ul><li><p>Low ceremony approach - easy to add or modify forms via JSON configuration</p></li><li><p>Consistent UI through reusable field wrappers and DynamicForm renderer</p></li><li><p><strong>!! Non-technical users can modify form questions by editing JSON schemas</strong></p></li><li><p>Reduced code duplication across similar form pages</p></li><li><p>Maintains flexibility to upgrade to full block system later</p></li><li><p>Requires maintaining schema versions for data migration</p></li><li><p>Initial overhead to build DynamicForm renderer and schema structure</p></li></ul><p><strong>Notes:</strong></p><p>Schema files will be stored in schemas/ directory (e.g., projectInfo.schema.json, staffCosts.schema.json). DynamicForm handles field rendering and validation, while page components control layout decisions. Supports both simple fields and repeatable arrays for dynamic content like staff lists or equipment items.</p><p>A high-level, is this </p><p>An example of two json files which could be used to load forms with id, names, and type of Form:</p><p><code>schemas/projectInfo.schema.json</code></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+  &quot;id&quot;: &quot;project-info.v1&quot;,
+  &quot;title&quot;: &quot;Project Info&quot;,
+  &quot;fields&quot;: [
+    { &quot;id&quot;: &quot;title&quot;, &quot;type&quot;: &quot;text&quot;, &quot;label&quot;: &quot;Project Title&quot;, &quot;required&quot;: true },
+    { &quot;id&quot;: &quot;author&quot;, &quot;type&quot;: &quot;text&quot;, &quot;label&quot;: &quot;Author&quot; },
+    { &quot;id&quot;: &quot;summary&quot;, &quot;type&quot;: &quot;textarea&quot;, &quot;label&quot;: &quot;Summary&quot; }
+  ],
+  &quot;repeatables&quot;: []
+}
+</pre>
+</div></div><p><code>schemas/staffCosts.schema.json</code></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+  &quot;id&quot;: &quot;staff-costs.v1&quot;,
+  &quot;title&quot;: &quot;Staff Costs&quot;,
+  &quot;fields&quot;: [],
+  &quot;repeatables&quot;: [
+    {
+      &quot;id&quot;: &quot;staffCosts&quot;,
+      &quot;title&quot;: &quot;Team members&quot;,
+      &quot;itemSchema&quot;: [
+        { &quot;id&quot;: &quot;name&quot;, &quot;type&quot;: &quot;text&quot;, &quot;label&quot;: &quot;Name&quot;, &quot;required&quot;: true },
+        { &quot;id&quot;: &quot;role&quot;, &quot;type&quot;: &quot;text&quot;, &quot;label&quot;: &quot;Role&quot; },
+        { &quot;id&quot;: &quot;hours&quot;, &quot;type&quot;: &quot;number&quot;, &quot;label&quot;: &quot;Hours&quot;, &quot;min&quot;: 0 },
+        { &quot;id&quot;: &quot;rate&quot;, &quot;type&quot;: &quot;number&quot;, &quot;label&quot;: &quot;Rate&quot;, &quot;min&quot;: 0 }
+      ]
+    }
+  ]
+}
+</pre>
+</div></div><p>This demonstrates its compatibility with forms and accessing data, as <code>repeatables</code> is used to define lists of items, where each item has the same set of fields, but the user can add/remove multiple entries dynamically. In this example, <code>staffCosts</code> is a table-like structure where each row corresponds to a team member.</p><p>It’s separate from <code>fields</code> because <code>fields</code> are for single-instance fields (like &quot;Project Title&quot; or &quot;Summary&quot;) that appear once per form, whereas repeatables are for arrays of entries.</p><p>Also with forms, it renders nicely:</p><ul><li><p><code>id</code> → used in <code>react-hook-form</code> as the array key (<code>staffCosts</code>), so that each item maps to <code>staffCosts[0]</code>, <code>staffCosts[1]</code>, etc.</p></li><li><p><code>title</code> → displayed above the array block in the form UI.</p></li><li><p><code>itemSchema</code> → defines the fields for each entry in the array. Every item has exactly the same shape: name, role, hours, rate.</p></li></ul><p>This being used at a higher level will be the schema being loaded into a DynamicFormPage of some sort that renders it in the section. </p><h3 id="FrontendDesignDecisions,Documentation-Decision5—DataTableIntegrationwithshadcn/ui">Decision 5 — Data Table Integration with shadcn/ui</h3><p><strong>Context:</strong></p><p>The application requires a responsive, accessible, and easily maintainable data table component to display dynamic datasets (e.g. project listings, costing breakdowns, or user submissions). The table should integrate seamlessly with the overall UI design system and support features like pagination, sorting, and filtering if needed.</p><p><strong>Options Considered:</strong></p><ul><li><p>Option A — Build a fully custom table component</p></li><li><p>Option B — Use a prebuilt table library (e.g. React Table, TanStack Table)</p></li><li><p>Option C — Use the shadcn/ui <code>DataTable</code> pattern built on TanStack Table with Tailwind</p></li></ul><p><strong>Decision:</strong></p><ul><li><p>Adopt the <code>DataTable</code> component pattern from shadcn/ui for all tabular data displays.</p></li><li><p>Wrap the table component in a custom utility for easy loading of data from external sources or API responses.</p></li></ul><p><strong>Consequences:</strong></p><ul><li><p>Significant reduction in development time with prebuilt table logic (sorting, pagination, filters).</p></li><li><p>Consistent styling aligned with the rest of the design system.</p></li><li><p>Easy to integrate with backend or local data sources by passing data and column definitions as props.</p></li><li><p>Minor learning curve for TanStack Table API and shadcn’s wrapper pattern.</p></li></ul><p><strong>Notes:</strong></p><h3 id="FrontendDesignDecisions,Documentation-Decision6—PageRenderingStrategy">Decision 6 — Page Rendering Strategy</h3><p><strong>Context:</strong></p><p>Application requires a workspace shell with persistent navigation (sidebar, header, right panel) while swapping content in the main area. Need predictable routing for developer-controlled pages containing forms, tables, and interactive components. Pages may contain internal tabs with independent views. Future may require dynamic dashboards or admin-configurable layouts.</p><p><strong>Options Considered:</strong></p><ul><li><p>Option A — Direct component rendering with array-based routing for all pages</p></li><li><p>Option B — Block-driven content renderer with JSON schema for dynamic layouts</p></li><li><p>Option C — Hybrid approach using direct components for core pages, blocks for configurable sections</p></li></ul><p><strong>Decision:</strong></p><ul><li><p>Use direct component rendering with array-based routing for workspace pages</p></li><li><p>Implement persistent WorkspaceShell that maintains header, and state</p></li><li><p>Define pages in central route array mapping path to component</p></li><li><p>Handle tabbed content within pages using local state and conditional rendering</p></li><li><p>Preserve tab state using hidden divs rather than unmounting components</p></li><li><p>Keep schema-driven forms and reusable components compatible with direct rendering</p></li></ul><p><strong>Consequences:</strong></p><ul><li><p>Predictable, type-safe routing and page composition for developers</p></li><li><p>Lower complexity overhead compared to block-driven system for MVP</p></li><li><p>Workspace state preserved across navigation (no sidebar/header re-renders)</p></li><li><p>Tab state maintained within pages for better user experience</p></li><li><p>Clear migration path to hybrid approach when dynamic layouts become necessary</p></li><li><p>Reusable components (forms, tables) work seamlessly with direct rendering</p></li></ul><p><strong>Notes:</strong></p><ul><li><p><strong>Data Table</strong> documentation: <a class="external-link" data-card-appearance="inline" href="https://ui.shadcn.com/docs/components/data-table" rel="nofollow">https://ui.shadcn.com/docs/components/data-table</a> </p></li><li><p>Pages can be registered in a central array for routing:</p></li></ul><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">// routes.ts or could be simple array in the WorkspaceShell
+export const projectRoutes = [
+  { path: &quot;overview&quot;, component: ProjectOverviewPage },
+  { path: &quot;staff-costs&quot;, component: StaffCostsPage },
+  { path: &quot;budget&quot;, component: BudgetPage },
+  // add more pages here
+];
+</pre>
+</div></div><ul><li><p>Workspace shell loads the active route component:</p></li></ul><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">&lt;WorkspaceShell&gt;
+  &lt;CurrentPageComponent /&gt;
+&lt;/WorkspaceShell&gt;</pre>
+</div></div><ul><li><p>Tabs inside pages are optional and handled locally:</p></li></ul><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">&lt;TabBar tabs={[&quot;Budget&quot;, &quot;Staff&quot;]} selectedTab={tab} onChange={setTab} /&gt;
+&lt;div hidden={tab !== &quot;Budget&quot;}&gt;&lt;BudgetForm /&gt;&lt;/div&gt;
+&lt;div hidden={tab !== &quot;Staff&quot;}&gt;&lt;StaffList /&gt;&lt;/div&gt;</pre>
+</div></div><ul><li><p>This pattern allows <strong>reusing schema-driven forms</strong>, tables, and other UI components without introducing the complexity of a full block/JSON-driven system.</p></li><li><p>Keeps routing and workspace logic simple while allowing later migration to block-driven pages if needed.</p></li></ul><h3 id="FrontendDesignDecisions,Documentation-Decision7—PageContentLayoutandResponsiveSystem"><strong>Decision 7 — Page Content Layout and Responsive System</strong></h3><p><strong>Context:</strong></p><p>Pages within the WorkspaceShell need consistent layout structure, spacing, and responsive behaviour without requiring developers to manually implement containers, breakpoints, or spacing logic for each page. Need separation between global layout (workspace shell) and page-level content organization while ensuring visual consistency across all pages.</p><p><strong>Options Considered:</strong></p><ul><li><p>Option A — Manual layout implementation per page with custom CSS and breakpoints</p></li><li><p>Option B — Utility-first approach using only Tailwind classes directly in each page</p></li><li><p>Option C — Standardised layout primitive components (PageContent, PageSection, PageRow) with built-in responsive behaviour</p></li></ul><p><strong>Decision:</strong></p><ul><li><p>Implement standardised layout primitive system with X amount of core components</p></li><li><p>PageContent serves as root container with vertical stacking, consistent padding, and max-width constraints</p></li><li><p>PageSection groups related content blocks with optional titles</p></li><li><p>PageRow handles horizontal layouts that automatically collapse to single column on mobile</p></li><li><p>Use Tailwind responsive utilities at container level rather than component level</p></li><li><p>Maintain separation between workspace shell (global), page layout (primitives), and component styling (internal)</p></li></ul><p><strong>Consequences:</strong></p><ul><li><p>Consistent visual appearance and spacing across all pages without repetitive layout code</p></li><li><p>Automatic responsive behaviour without manual breakpoint management per page</p></li><li><p>Clear separation of layout concerns makes pages easier to maintain and extend</p></li><li><p>Developers can focus on content and functionality rather than layout mechanics</p></li><li><p>Slight learning curve for layout primitive usage patterns</p></li><li><p>Risk of layout constraints if primitives don't cover edge cases</p></li></ul><p><strong>Notes:</strong></p><p>An example outline of how it might work</p><p><code>PageContent</code> is the root container for page content. It acts like an auto-layout frame in Figma, stacking blocks vertically, applying consistent padding, and constraining width.</p><p><code>PageRow</code> is used to place two or more blocks side by side on larger screens, while automatically stacking them on mobile.</p><h3 id="FrontendDesignDecisions,Documentation-Decision8—RoutingArchitecture">Decision 8 — Routing Architecture</h3><p><strong>Context:</strong></p><p>Application requires clear separation between public routes (login, password reset) and authenticated workspace routes (dashboard, projects, settings). Authenticated routes should share common workspace layout while public routes use minimal standalone layouts. Need efficient routing that minimises re-rendering of persistent UI elements.</p><p><strong>Options Considered:</strong></p><ul><li><p>Option A — All routes use same layout with conditional navigation rendering</p></li><li><p>Option B — Separate routing trees with different layout wrappers per route type</p></li><li><p>Option C — Two-level nested routing with workspace shell for authenticated routes only</p></li></ul><p><strong>Decision:</strong></p><ul><li><p>Builds on Decision 5.</p></li><li><p>Implement two-level routing model with persistent workspace shell for authenticated sections</p></li><li><p>Public routes render as standalone components without workspace layout</p></li><li><p>All authenticated routes render inside persistent WorkspaceShell component</p></li><li><p>Use nested routing where WorkspaceShell wraps authenticated routes and provides Outlet</p></li></ul><p><strong>Consequences:</strong></p><ul><li><p>Clean separation between public and authenticated user experiences</p></li><li><p>Consistent workspace navigation across all main application pages</p></li><li><p>Minimal re-rendering since sidebar, header, and panels persist during navigation (inside workshell)</p></li><li><p>Easy to extend by adding routes to configuration without layout concerns</p></li><li><p>Global state preservation across workspace navigation</p></li><li><p>Slightly more complex routing setup with nested route structure</p></li></ul><p><strong>Notes:</strong></p><p>Public routes: <code>/login</code> render standalone. Authenticated routes: <code>/dashboard</code>, <code>/projects</code>, <code>/projects/:id</code> render inside WorkspaceShell. Navigation between workspace routes only swaps main content via React Router Outlet. Route configuration includes layout type metadata. Internal page tabs handled by individual page components, not routing system. Supports future addition of routes without changing fundamental architecture.</p><h3 id="FrontendDesignDecisions,Documentation-Decision9—DirectoryStructure">Decision 9 — Directory Structure</h3><p>This is not an exhaustive repo structure, and just is to demonstrate what should go there </p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">rcpt/
+│
+├── public/                      # Static files (images, favicon, fonts)
+│
+├── src/
+│   ├── assets/                  # Imported static assets for components/pages
+│   │   ├── images/
+│   │   └── fonts/
+│   │
+│   ├── components/              # Reusable UI components
+│   │   ├── ui/                  # shadcn/ui components imported
+│   │   │   ├── Button.tsx
+│   │   │   ├── Input.tsx
+│   │   │   └── Card.tsx
+│   │   │
+│   │   ├── forms/               # Form wrappers + DynamicForm renderer
+│   │   │   ├── FormTextInput.tsx
+│   │   │   ├── FormSelect.tsx
+│   │   │   └── DynamicForm.tsx
+│   │   │
+│   │   ├── layout/              # Page layout primitives
+│   │   │   ├── PageContent.tsx
+│   │   │   └── PageRow.tsx
+│   │   │
+│   │   └── navigation/          # Header, Sidebar, TabBar, etc.
+│   │       ├── Header.tsx
+│   │       └── TabBar.tsx
+│   │
+│   ├── features/                # Feature-specific logic/UI per page
+|   |   |
+│   │   ├── Staff/
+│   │   │   ├── StaffTab.tsx
+│   │   │   └── staffLogic.ts
+│   │   │
+│   │   ├── Equipment/
+│   │   │   ├── EquipmentTab.tsx
+│   │   │   └── equipmentLogic.ts   # Will use pdfService.ts
+│   │   │
+│   │   └── Export/
+│   │       ├── ExportTab.tsx
+│   │       └── exportLogic.ts
+│   │
+│   ├── context/                 # Global state
+│   │   └── ProjectContext.tsx   # Project data &amp; setters (Decision 3)
+│   │
+│   ├── pages/                   # Workspace pages / public pages
+│   │   ├── dashboard/
+│   │   │   └── DashboardPage.tsx
+│   │   │
+│   │   ├── projects/
+│   │   │   ├── ProjectOverviewPage.tsx   
+│   │   │   ├── StaffCostsPage.tsx        # DynamicForm + DataTable
+│   │   │   └── BudgetPage.tsx            # Schema-driven form + DataTable
+│   │   │
+│   │   ├── auth/
+│   │   │   └── LoginPage.tsx
+│   │   │
+│   │   └── settings/
+│   │       └── UserSettingsPage.tsx      # Undecided ? 
+│   │
+│   ├── schemas/                  # JSON schemas for DynamicForm (Decision 4)
+│   │   ├── projectInfo.schema.json
+│   │   ├── staffCosts.schema.json
+│   │   └── budget.schema.json
+│   │
+│   ├── services/                  # API, helpers, storage utilities
+│   │   ├── dataTableService.ts    # Fetch, transform, and return data for DataTables
+│   │   ├── api.ts                 # Base API client
+│   │   ├── projectService.ts      # Project-related endpoints
+│   │   ├── authService.ts         # Authentication endpoints
+│   │   └── pdfService.ts          # PDF exporting service
+│   │
+│   ├── utils/                     # Generic helpers / constants
+│   │   ├── cn.ts
+│   │   └── constants.ts
+│   │
+│   ├── styles/                    # Tailwind + global styles
+│   │   └── global.css
+│   │
+│   ├── App.tsx                    # Root App (routes, context providers)
+│   └── main.tsx                   # Entry point
+│
+├── tailwind.config.js
+├── tsconfig.json
+├── package.json
+└── README.md
+</pre>
+</div></div><p><strong>Key Decisions Reflected</strong></p><ol start="1"><li><p>UI Component Library – <code>components/ui</code> wraps shadcn/ui for consistency, accessibility, Tailwind styling (Decision 1).</p></li><li><p>Form Architecture – <code>components/forms</code> + RHF + reusable wrappers for text, select, textarea, number (Decision 2).</p></li><li><p>Global Project Context – <code>context/ProjectContext.tsx</code> for global form state; decouples UI from persistence (Decision 3).</p></li><li><p>Dynamic Form Rendering – <code>DynamicForm.tsx</code> loads JSON from <code>schemas/</code> for page-specific forms (Decision 4).</p></li><li><p>Data Tables – <code>features/</code> pages use <code>DataTable</code> pattern from shadcn/ui for responsive tables (Decision 5).</p></li><li><p>Page Rendering &amp; Workspace Shell – <code>pages/</code> under WorkspaceShell; central routing; tabs handled locally per page (Decision 6 &amp; 8).</p></li><li><p>Layout Primitives – <code>components/layout</code> with <code>PageContent</code>, <code>PageSection</code>, <code>PageRow</code> for consistent responsive layout (Decision 7).</p></li></ol>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Mar 03, 2026 12:01</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

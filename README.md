@@ -10,6 +10,7 @@
 - [INFO20003 - Database Systems](INFO20003/README.md)
 - [COMP20008 - Elements of Data Processing](COMP20008/README.md)
     - [Assignment 2 - Data Processing Report](COMP20008/Assignment2/README.md)
+- [COMP30022 - IT Project](COMP30022/README.md)
 - [COMP30023 - Computer Systems](COMP30023/README.md)
 - [SWEN30006 - Software Modelling and Design](SWEN30006/README.md)
 

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Group Twenty Two Project : Non-Functional Requirements</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Group Twenty Two Project</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Group-Twenty-Two-Project_622858.html">Group Twenty Two Project</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="._146866177.html">.</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="8617989.html">📘 Design Documentation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Requirements_9076738.html">Requirements</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Group Twenty Two Project : Non-Functional Requirements
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Jay Schellens</span> on Aug 26, 2025
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <h2 id="Non-FunctionalRequirements-Accessibility&amp;Compatibility">Accessibility &amp; Compatibility</h2><div class="table-wrap"><table data-table-width="760" data-layout="default" data-local-id="86d87c2e-9b07-4cd4-aaf4-3960da3fda07" class="confluenceTable"><tbody><tr><th class="confluenceTh"><p>Requirement</p></th><th class="confluenceTh"><p>Solution</p></th><th class="confluenceTh"><p>Priority (H, M, L)</p></th></tr><tr><td class="confluenceTd"><p>Accessible via modern browsers</p></td><td class="confluenceTd"><p>Support latest versions of Chrome, Edge, Safari, and Firefox</p></td><td class="confluenceTd"><p>H</p></td></tr><tr><td class="confluenceTd"><p>Must function reliably on desktop (mobile optional)</p></td><td class="confluenceTd"><p>Responsive UI for desktop, potential mobile layout</p></td><td class="confluenceTd"><p>H</p></td></tr><tr><td class="confluenceTd"><p>Interface should be accessible (basic accessibility standards)</p></td><td class="confluenceTd"><p>Standard forms, labels, readable fonts</p></td><td class="confluenceTd"><p>M</p></td></tr><tr><td class="confluenceTd"><p>Optimised for text-to-speech</p></td><td class="confluenceTd"><p>Optimise HTML for text-to-speech engines</p></td><td class="confluenceTd"><p>L</p></td></tr><tr><td class="confluenceTd"><p>Optimised for tab navigation</p></td><td class="confluenceTd"><p>Optimise HTML for tab navigation</p></td><td class="confluenceTd"><p>L</p></td></tr></tbody></table></div><h2 id="Non-FunctionalRequirements-Security&amp;Compliance">Security &amp; Compliance</h2><div class="table-wrap"><table data-table-width="760" data-layout="default" data-local-id="2e78abf2-09d1-4bcd-b3e6-c22ca2f04510" class="confluenceTable"><tbody><tr><th class="confluenceTh"><p>Requirement</p></th><th class="confluenceTh"><p>Solution</p></th><th class="confluenceTh"><p>Priority (H, M, L)</p></th></tr><tr><td class="confluenceTd"><p>Data must be stored securely (on UoM internal hosting?)</p></td><td class="confluenceTd"><p>Use internal servers, encryption as per policy or similar to adhere to the policies</p></td><td class="confluenceTd"><p>H</p></td></tr><tr><td class="confluenceTd"><p>Must comply with UoM data retention and privacy policies</p></td><td class="confluenceTd"><p>Implement retention schedules and privacy rules</p></td><td class="confluenceTd"><p>M</p></td></tr><tr><td class="confluenceTd"><p>Data must be encrypted in transit as per UniMelb data policies</p></td><td class="confluenceTd"><p>HTTPS / TLS and good network practices</p></td><td class="confluenceTd"><p>M</p></td></tr><tr><td class="confluenceTd"><p>System must be compatible with UoM IT environment</p></td><td class="confluenceTd"><p>Follow internal IT standards for deployment</p></td><td class="confluenceTd"><p>M</p></td></tr></tbody></table></div><h2 id="Non-FunctionalRequirements-Performance&amp;Reliability">Performance &amp; Reliability</h2><div class="table-wrap"><table data-table-width="760" data-layout="default" data-local-id="35e6a775-ad7f-4538-98ba-59e411427d3f" class="confluenceTable"><tbody><tr><th class="confluenceTh"><p>Requirement</p></th><th class="confluenceTh"><p>Solution</p></th><th class="confluenceTh"><p>Priority (H, M, L)</p></th></tr><tr><td class="confluenceTd"><p>System should load calculation results within reasonable time (&lt;2 sec)</p></td><td class="confluenceTd"><p>Optimised backend calculations</p></td><td class="confluenceTd"><p>M</p></td></tr><tr><td class="confluenceTd"><p>System must handle multiple concurrent users</p></td><td class="confluenceTd"><p>Support multi-user access without errors</p></td><td class="confluenceTd"><p>M</p></td></tr><tr><td class="confluenceTd"><p>Must log errors and provide admin notifications</p></td><td class="confluenceTd"><p>Error logging service (backend)</p></td><td class="confluenceTd"><p>M</p></td></tr><tr><td class="confluenceTd"><p>Email notifications should be sent promptly (&lt;1 min delay)</p></td><td class="confluenceTd"><p>Trigger email service on workflow events</p></td><td class="confluenceTd"><p>L / M</p></td></tr><tr><td class="confluenceTd"><p>Ensure data is backed up regularly</p></td><td class="confluenceTd"><p>Regular database backups</p></td><td class="confluenceTd"><p>L (out-of-scope)</p></td></tr></tbody></table></div><h2 id="Non-FunctionalRequirements-Maintainability&amp;Design(forExtendibility)">Maintainability &amp; Design (for Extendibility)</h2><div class="table-wrap"><table data-table-width="760" data-layout="default" data-local-id="be7cd86a-3de4-4298-88f1-525be90a4afc" class="confluenceTable"><tbody><tr><th class="confluenceTh"><p>Requirement</p></th><th class="confluenceTh"><p>Solution</p></th><th class="confluenceTh"><p>Priority (H, M, L)</p></th></tr><tr><td class="confluenceTd"><p>Support maintainability and future feature additions</p></td><td class="confluenceTd"><p>Modular code structure and good coding practices</p></td><td class="confluenceTd"><p>H</p></td></tr><tr><td class="confluenceTd"><p>Clear and trackable iterations of the report and its progression with stats like total costs</p></td><td class="confluenceTd"><p>Add these in clear places for visual understanding of the cost of research</p></td><td class="confluenceTd"><p>H</p></td></tr><tr><td class="confluenceTd"><p>Reports (PDF/Excel) should be correctly formatted</p></td><td class="confluenceTd"><p>Standardised templates</p></td><td class="confluenceTd"><p>H</p></td></tr><tr><td class="confluenceTd"><p>Web interface should be intuitive and easy to navigate</p></td><td class="confluenceTd"><p>Standard UI/UX best practices</p></td><td class="confluenceTd"><p>M</p></td></tr><tr><td class="confluenceTd"><p>Make the layout of different views similar and useable</p></td><td class="confluenceTd"><p>Stick to a clear standard of design</p></td><td class="confluenceTd"><p>M</p></td></tr></tbody></table></div><p />
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Mar 03, 2026 12:00</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

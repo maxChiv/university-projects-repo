@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Group Twenty Two Project : CD + Deployment</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Group Twenty Two Project</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Group-Twenty-Two-Project_622858.html">Group Twenty Two Project</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="._146866177.html">.</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="23986177.html">&lt;/&gt; Development Documentation</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Group Twenty Two Project : CD + Deployment
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Eugene Yap</span>, last modified by <span class='editor'> Zac Davidson</span> on Oct 29, 2025
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <h1 id="CD+Deployment-Overview">Overview</h1><p>The RCPT application consists of four main components:</p><ol start="1"><li><p>Frontend – React-based interface for user interaction.</p></li><li><p>Backend – Spring Boot REST API handling logic and database integration.</p></li><li><p>PostgreSQL – relational database for reference/lookup data.</p></li><li><p>MongoDB (Atlas) – NoSQL database storing main app data (users, projects, documents).</p></li></ol><p>Deployment is managed through Render, which builds and hosts each service as a containerised application using Docker. Continuous Deployment (CD) is handled automatically via Git integration.</p><h3 id="CD+Deployment-ProjectLink:https://group22-rcpt.onrender.com">Project Link: <a class="external-link" href="https://group22-rcpt.onrender.com" rel="nofollow">https://group22-rcpt.onrender.com</a> </h3><h3 id="CD+Deployment-BackendDeployment(SpringBoot+PostgreSQL+MongoDBAtlas)">Backend Deployment (Spring Boot + PostgreSQL + MongoDB Atlas)</h3><p>Render Service Type:</p><ul><li><p>Service Type: Web Service</p></li><li><p>Environment: Docker</p></li><li><p>Branch: main</p></li><li><p>Port: 8080</p></li></ul><p>Environment Variables:</p><ul><li><p>SPRING_DATASOURCE_URL → PostgreSQL connection string</p></li><li><p>SPRING_DATASOURCE_USERNAME → PostgreSQL username</p></li><li><p>SPRING_DATASOURCE_PASSWORD → PostgreSQL password</p></li><li><p>MONGO_URI → MongoDB Atlas connection URI</p></li><li><p>FIREBASE_CREDENTIALS_PATH → classpath:firebase-service-account.json</p></li></ul><p>Notes:</p><ul><li><p>Render builds the Docker image, caches dependencies, and runs the container.</p></li><li><p>Logs are viewable in Render’s dashboard.</p></li></ul><h3 id="CD+Deployment-FrontendDeployment(React/Node22)">Frontend Deployment (React / Node 22)</h3><p>Render Service Type:</p><ul><li><p>Service Type: Web Service</p></li><li><p>Environment: Docker</p></li><li><p>Branch: main</p></li><li><p>Port: 3000</p></li></ul><p>Environment Variables:</p><ul><li><p>VITE_FIREBASE_API_KEY → Firebase API key</p></li><li><p>VITE_FIREBASE_AUTH_DOMAIN → Firebase auth domain</p></li><li><p>VITE_FIREBASE_PROJECT_ID → Firebase project ID</p></li><li><p>VITE_FIREBASE_MESSAGING_SENDER_ID → Firebase messaging sender ID</p></li><li><p>VITE_FIREBASE_APP_ID → Firebase app ID</p></li></ul><h3 id="CD+Deployment-Databases">Databases</h3><p>PostgreSQL (Render Managed)</p><ul><li><p>Created via Render Dashboard → PostgreSQL</p></li><li><p>Render injects DATABASE_URL automatically</p></li><li><p>Map DATABASE_URL to SPRING_DATASOURCE_URL</p></li></ul><p>MongoDB Atlas</p><ul><li><p>Hosted externally at <a class="external-link" data-card-appearance="inline" href="https://www.mongodb.com/cloud/atlas" rel="nofollow">https://www.mongodb.com/cloud/atlas</a> </p></li><li><p>Connection string stored as MONGO_URI</p></li></ul><h3 id="CD+Deployment-ContinuousDeployment(CD)onRender">Continuous Deployment (CD) on Render</h3><ul><li><p>GitHub Integration: Render installs a webhook on the repo.</p></li><li><p>Push to main branch triggers automatic deployment.</p></li><li><p>Build process:</p><ul><li><p>Pull latest code</p></li><li><p>Build Docker image</p></li><li><p>Start container and perform health check</p></li></ul></li><li><p>Zero-Downtime Deployment:</p><ul><li><p>New container is started</p></li><li><p>Once healthy, traffic is switched to the new version</p></li><li><p>Old container is stopped</p></li></ul></li><li><p>Logs and Rollbacks:</p><ul><li><p>Viewable in Render Dashboard</p></li><li><p>Rollback to previous deploy with one click</p></li></ul></li></ul><h3 id="CD+Deployment-SecurityConsiderations">Security Considerations</h3><ul><li><p>Never commit credentials (.env, service accounts) to Git</p></li><li><p>Use Render Environment Variables for all secrets</p></li><li><p>Restrict MongoDB Atlas access to Render static outbound IPs</p></li><li><p>Use HTTPS for all frontend-backend communication</p></li></ul>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Mar 03, 2026 12:01</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

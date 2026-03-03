@@ -1,0 +1,722 @@
+{
+  "$id": "https://example.org/rcpt-bundle-v1.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "RCPT Mock Data Bundle (Domain-Class-Aligned)",
+  "type": "object",
+  "properties": {
+    "users": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/User"
+      }
+    },
+    "projectDetails": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/ProjectDetails"
+      }
+    },
+    "staffCosts": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/StaffCost"
+      }
+    },
+    "nonStaffCosts": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/NonStaffCost"
+      }
+    },
+    "priceSummary": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/PriceSummary"
+      }
+    },
+    "budgetForm": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/BudgetForm"
+      }
+    },
+    "projectApplication": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/ProjectApplication"
+      }
+    },
+    "approvalTracker": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/ApprovalTracker"
+      }
+    },
+    "lookupDataHandler": {
+      "$ref": "#/$defs/LookupDataHandler"
+    },
+    "use_case": {
+      "$ref": "#/$defs/UseCase"
+    }
+  },
+  "required": [
+    "users",
+    "projectDetails"
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "ID": {
+      "type": "string",
+      "minLength": 1
+    },
+    "PositiveMoney": {
+      "type": "number",
+      "minimum": 0
+    },
+    "Email": {
+      "type": "string",
+      "format": "email"
+    },
+    "User": {
+      "type": "object",
+      "properties": {
+        "userid": {
+          "$ref": "#/$defs/ID"
+        },
+        "name": {
+          "type": "string"
+        },
+        "email": {
+          "$ref": "#/$defs/Email"
+        },
+        "password": {
+          "type": "string"
+        },
+        "isAdmin": {
+          "type": "boolean"
+        },
+        "isApprover": {
+          "type": "boolean"
+        },
+        "username": {
+          "type": "string"
+        },
+        "displayName": {
+          "type": "string"
+        },
+        "pastProjects": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ID"
+          },
+          "uniqueItems": true
+        },
+        "dateJoined": {
+          "type": "string",
+          "format": "date"
+        }
+      },
+      "required": [
+        "userid",
+        "name",
+        "email",
+        "username",
+        "displayName"
+      ],
+      "additionalProperties": false
+    },
+    "ProjectDetails": {
+      "type": "object",
+      "properties": {
+        "projectID": {
+          "$ref": "#/$defs/ID"
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "leadOrgID": {
+          "type": "string"
+        },
+        "funder": {
+          "type": "string"
+        },
+        "department": {
+          "type": "string"
+        },
+        "faculty": {
+          "type": "string"
+        },
+        "scheme": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "startDate": {
+          "type": "string",
+          "format": "date"
+        },
+        "endDate": {
+          "type": "string",
+          "format": "date"
+        },
+        "currency": {
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 3
+        }
+      },
+      "required": [
+        "projectID",
+        "title",
+        "currency"
+      ],
+      "additionalProperties": false
+    },
+    "StaffCost": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/ID"
+        },
+        "projectID": {
+          "$ref": "#/$defs/ID"
+        },
+        "staffName": {
+          "type": "string"
+        },
+        "typeStaffCost": {
+          "type": "string",
+          "enum": [
+            "Direct",
+            "InKind"
+          ]
+        },
+        "employmentType": {
+          "type": "string",
+          "enum": [
+            "Continuing",
+            "Fixed term",
+            "Casual"
+          ]
+        },
+        "category": {
+          "type": "string",
+          "enum": [
+            "Academic",
+            "Professional",
+            "Casual"
+          ]
+        },
+        "classification": {
+          "type": "string"
+        },
+        "timeBasis": {
+          "type": "string",
+          "enum": [
+            "FTE",
+            "Daily",
+            "Hourly"
+          ]
+        },
+        "salaryRate": {
+          "$ref": "#/$defs/PositiveMoney"
+        },
+        "wageCost": {
+          "type": "number",
+          "minimum": 0
+        },
+        "fullCost": {
+          "type": "number",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "id",
+        "projectID",
+        "staffName",
+        "typeStaffCost",
+        "employmentType",
+        "category",
+        "timeBasis",
+        "salaryRate",
+        "wageCost"
+      ],
+      "additionalProperties": false
+    },
+    "NonStaffCost": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/ID"
+        },
+        "projectID": {
+          "$ref": "#/$defs/ID"
+        },
+        "costCategory": {
+          "type": "string"
+        },
+        "expenseType": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "costPerItem": {
+          "$ref": "#/$defs/PositiveMoney"
+        },
+        "quantity": {
+          "type": "number",
+          "minimum": 0
+        },
+        "isInKind": {
+          "type": "boolean"
+        },
+        "addGST": {
+          "type": "boolean"
+        },
+        "indirectRateMultiplier": {
+          "type": "number",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "id",
+        "projectID",
+        "costCategory",
+        "expenseType",
+        "costPerItem",
+        "quantity",
+        "isInKind",
+        "addGST"
+      ],
+      "additionalProperties": false
+    },
+    "PriceSummary": {
+      "type": "object",
+      "properties": {
+        "projectID": {
+          "$ref": "#/$defs/ID"
+        },
+        "currency": {
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 3
+        },
+        "totalCost": {
+          "type": "number",
+          "minimum": 0
+        },
+        "amountUOM": {
+          "type": "string"
+        },
+        "indirectCostMultiplier": {
+          "type": "number",
+          "minimum": 0
+        },
+        "priceToCharge": {
+          "type": "number",
+          "minimum": 0
+        },
+        "GSTIncluded": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "projectID",
+        "currency",
+        "indirectCostMultiplier",
+        "GSTIncluded"
+      ],
+      "additionalProperties": false
+    },
+    "BudgetForm": {
+      "type": "object",
+      "properties": {
+        "projectID": {
+          "$ref": "#/$defs/ID"
+        },
+        "projectDetails": {
+          "$ref": "#/$defs/ID"
+        },
+        "projectSummary": {
+          "type": "object",
+          "properties": {
+            "overview": {
+              "type": "string"
+            },
+            "deliverables": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "overview"
+          ],
+          "additionalProperties": false
+        },
+        "authorisationDetails": {
+          "type": "object",
+          "properties": {
+            "preparedBy": {
+              "$ref": "#/$defs/ID"
+            },
+            "headOfDepartment": {
+              "anyOf": [
+                {
+                  "$ref": "#/$defs/ID"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "deanApprovalRequired": {
+              "type": "boolean"
+            },
+            "signatures": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "role": {
+                    "type": "string"
+                  },
+                  "by": {
+                    "$ref": "#/$defs/ID"
+                  },
+                  "at": {
+                    "type": "string",
+                    "format": "date-time"
+                  }
+                },
+                "required": [
+                  "role",
+                  "by",
+                  "at"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "preparedBy",
+            "deanApprovalRequired",
+            "signatures"
+          ],
+          "additionalProperties": false
+        },
+        "staffBudget": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ID"
+          }
+        },
+        "nonStaffBudget": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ID"
+          }
+        }
+      },
+      "required": [
+        "projectID",
+        "projectDetails",
+        "projectSummary",
+        "authorisationDetails",
+        "staffBudget",
+        "nonStaffBudget"
+      ],
+      "additionalProperties": false
+    },
+    "ProjectApplication": {
+      "type": "object",
+      "properties": {
+        "projectid": {
+          "$ref": "#/$defs/ID"
+        },
+        "dateCreated": {
+          "type": "string",
+          "format": "date"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "draft",
+            "submitted",
+            "approved",
+            "rejected"
+          ]
+        }
+      },
+      "required": [
+        "projectid",
+        "dateCreated",
+        "status"
+      ],
+      "additionalProperties": false
+    },
+    "ApprovalTracker": {
+      "type": "object",
+      "properties": {
+        "projectid": {
+          "$ref": "#/$defs/ID"
+        },
+        "requestApproval": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "by": {
+                "$ref": "#/$defs/ID"
+              },
+              "at": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "comment": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "by",
+              "at"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "updatesStatus": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "role": {
+                "type": "string"
+              },
+              "actor": {
+                "$ref": "#/$defs/ID"
+              },
+              "action": {
+                "type": "string",
+                "enum": [
+                  "APPROVED",
+                  "REJECTED",
+                  "RETURNED"
+                ]
+              },
+              "at": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "comment": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "role",
+              "actor",
+              "action",
+              "at"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "currentStage": {
+          "type": "string",
+          "enum": [
+            "draft",
+            "submitted",
+            "approved",
+            "rejected"
+          ]
+        }
+      },
+      "required": [
+        "projectid",
+        "currentStage"
+      ],
+      "additionalProperties": false
+    },
+    "LookupDataHandler": {
+      "type": "object",
+      "properties": {
+        "salaryRates": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "base": {
+                "type": "number",
+                "minimum": 0
+              },
+              "hourly": {
+                "type": "number",
+                "minimum": 0
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "EBAMultiplier": {
+          "type": "number",
+          "minimum": 0
+        },
+        "studentStipends": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "superRate": {
+          "type": "number",
+          "minimum": 0
+        },
+        "leaveLoading": {
+          "type": "number",
+          "minimum": 0
+        },
+        "payrollTax": {
+          "type": "number",
+          "minimum": 0
+        },
+        "workCover": {
+          "type": "number",
+          "minimum": 0
+        },
+        "parentalLeave": {
+          "type": "number",
+          "minimum": 0
+        },
+        "longserviceLeave": {
+          "type": "number",
+          "minimum": 0
+        },
+        "annualLeave": {
+          "type": "number",
+          "minimum": 0
+        },
+        "workingDays": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "researchType": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "salaryRateMultiplier": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "regions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "deliverableTypes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "fullCostRecoveryMultiplier": {
+          "type": "number",
+          "minimum": 0
+        },
+        "departmentList": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "revenueCategories": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "nonStaffCosts": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "UseCase": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "actors": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "preconditions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "sequence": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "step": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "op": {
+                "type": "string"
+              },
+              "request": {
+                "type": "object"
+              },
+              "mutations": {
+                "type": "array",
+                "items": {
+                  "type": "object"
+                }
+              },
+              "expect": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "step",
+              "op",
+              "expect"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "postconditions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "name",
+        "sequence"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Group Twenty Two Project : Spec Sheet</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Group Twenty Two Project</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Group-Twenty-Two-Project_622858.html">Group Twenty Two Project</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="._146866177.html">.</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="8978434.html">🏠 Project Overview</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Group Twenty Two Project : Spec Sheet
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Jay Schellens</span>, last modified by <span class='editor'> Mitchell Pooley</span> on Nov 05, 2025
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>Spec Sheet as of 15/08:</p><p class="media-group"><span class="confluence-embedded-file-wrapper"><a class="confluence-embedded-file" href="attachments/6291488/6586439.pdf" data-nice-type="PDF Document" data-file-src="/wiki/download/attachments/6291488/Spec%20Sheet%20RCPT.pdf?version=2&amp;modificationDate=1755254846464&amp;cacheVersion=1&amp;api=v2" data-linked-resource-id="6586439" data-linked-resource-type="attachment" data-linked-resource-container-id="6291488" data-linked-resource-default-alias="Spec Sheet RCPT.pdf" data-mime-type="application/pdf" data-has-thumbnail="true" data-linked-resource-version="2" data-media-id="606711fa-1d09-47fd-91e9-201c47ede194" data-media-type="file"><img src="attachments/thumbnails/6291488/6586439" height="250"/></a></span></p><hr/><h3 id="SpecSheet-1.ProjectSummary">1. <strong>Project Summary</strong></h3><p><strong>Project Name:</strong> Research Pricing and Costing Tool (RPCT)</p><p><strong>Client: </strong>Melbourne University - Research, Innovation and Commercialisation (RIC)</p><p><strong>Summary:</strong></p><p>The current RPCT is an Excel-based workbook used at the University of Melbourne for budgeting research projects. While functional, it suffers from:</p><ul><li><p>Instability across platforms.</p></li><li><p>Confusion between “costing” and “pricing.”</p></li><li><p>Undue complexity requiring extensive help resources.</p></li><li><p>Lack of integrated approval mechanisms, resulting in budget documents being emailed for sign-off with a bunch of people (ie finance, RIC, etc).</p></li><li><p>Contains multiple tabs, dense formulas, and unclear fields.</p></li><li><p>Requires manual copying/pasting of signatures for approvals.</p></li></ul><p>The proposed solution is a web-based RPCT to assist researchers and administrators in costing and pricing projects in accordance with the <a class="external-link" href="https://policy.unimelb.edu.au/MPF1347" rel="nofollow">Research Funding, Costing and Pricing Policy</a>. It will:</p><ul><li><p>Automate calculations for direct and indirect costs.</p></li><li><p>Support pricing adjustments and comparison against cost.</p></li><li><p>Provide an integrated approval workflow with notifications and status tracking.</p></li><li><p>Maintain centralised access to approved budgets for authorised users.</p></li></ul><p>This tool is intended <strong>for internal University use only</strong>, but outputs can populate grant applications, determine scope of work for a defined budget, or provide a price to a funder (when appropriate).</p><h3 id="SpecSheet-2.Objectives">2. <strong>Objectives</strong></h3><p>The system will:</p><ol start="1"><li><p>Allow projects to be fully costed, including salary and non-salary sections.</p></li><li><p>Enable pricing adjustments (margin, discounts) to determine final project price.</p></li><li><p>Summarise project cost vs. price and University position in a clear report format.</p></li><li><p>Include an approval workflow with:</p><ul><li><p>Automatic notifications and reminders.</p></li><li><p>Ability for approvers to review, comment, or request changes.</p></li></ul></li><li><p>Deliver a final approved budget accessible to authorised admin users.</p></li><li><p>Must function on modern browsers (Chrome, Edge, Safari) across desktop.</p></li></ol><h3 id="SpecSheet-3.TargetUsers">3. <strong>Target Users</strong></h3><p><strong>Primary:</strong> Grant Applicants, RIC admin.</p><p><strong>Secondary:</strong> Faculty supervisors, finance team.</p><p><strong>Other Stakeholders:</strong></p><ul><li><p><strong>Primary Decision Makers:</strong> Project lead, Faculty Heads, RIC leadership.</p></li><li><p><strong>Consulted Parties:</strong> IT department, finance department, faculty supervisors, PhD representatives.</p></li></ul><h3 id="SpecSheet-4.KeyFeatures/Functions">4. <strong>Key Features / Functions</strong></h3><ul><li><p>Input research parameters (e.g., project duration, resources, staff time, consumables). ✱</p></li><li><p>Automated costing calculations using internal university rates. ✱</p></li><li><p>Pricing adjustment options with immediate recalculation. ✱</p></li><li><p>Export functionality to PDF✱ and Excel formats.</p></li><li><p>Approval workflow with notification system (assumed just emails for simplicity).</p></li><li><p>Web-based, user-friendly interface accessible on major browsers.</p></li></ul><p>✱ AS SEEN IN EXCEL WORKBOOK</p><h3 id="SpecSheet-5.Scope">5. <strong>Scope</strong></h3><p><strong>In-scope:</strong></p><ul><li><p>Internal research project costing and pricing.</p></li><li><p>Automated application of UoM salary rates and indirect cost rates.</p></li><li><p>Internal approval process with digital tracking and notificiations.</p></li><li><p>Report generation in PDF/Excel.</p></li><li><p>Inline help, tooltips, examples, and context panes; glossary for costing terms</p></li></ul><p><strong>Out-of-scope:</strong></p><ul><li><p>External funding body budget templates (e.g., ARC/NHMRC-specific tools).</p></li><li><p>Compliance checks with relevant policies and funding rules. </p></li></ul><p><strong>Unsure:</strong></p><ul><li><p>Integration with UoM authentication systems (SSO).</p></li><li><p>Communication channels with the application process:</p><ul><li><p>eg: RIC Admin → Candidate (using comments in the system) RIC Admin → Other departments (some form of chat)</p></li></ul></li></ul><h3 id="SpecSheet-6.Constraints/Assumptions">6. <strong>Constraints / Assumptions</strong></h3><ul><li><p>Must comply with UoM data storage, retention, and privacy policies…?</p></li><li><p>Must use UoM Single Sign-On for authentication.</p></li><li><p>Data must be securely stored on internal UoM hosting.</p></li><li><p>Approval workflows must be supportive of cross-faculty inquiries</p></li><li><p>Must integrate with existing University databases and linked services.</p></li></ul><p />
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/6291488/6324280.pdf">Spec Sheet RCPT.pdf</a> (application/pdf)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/6291488/6586439.pdf">Spec Sheet RCPT.pdf</a> (application/pdf)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Mar 03, 2026 12:00</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Group Twenty Two Project : API Integration Documentation</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Group Twenty Two Project</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Group-Twenty-Two-Project_622858.html">Group Twenty Two Project</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="._146866177.html">.</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="23986177.html">&lt;/&gt; Development Documentation</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Group Twenty Two Project : API Integration Documentation
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Zac Davidson</span> on Oct 25, 2025
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <h1 id="APIIntegrationDocumentation-APIIntegrationDocumentation">API Integration Documentation</h1><h2 id="APIIntegrationDocumentation-SpringBoot+ReactConnectionExplained">Spring Boot + React Connection Explained</h2><hr/><h2 id="APIIntegrationDocumentation-TableofContents">Table of Contents</h2><ol start="1"><li><p><a class="external-link" href="https://claude.ai/chat/cb84e335-df99-49cb-8830-2a28b86acabe#overview" rel="nofollow">Overview</a></p></li><li><p><a class="external-link" href="https://claude.ai/chat/cb84e335-df99-49cb-8830-2a28b86acabe#how-the-connection-works---step-by-step" rel="nofollow">How The Connection Works - Step by Step</a></p></li><li><p><a class="external-link" href="https://claude.ai/chat/cb84e335-df99-49cb-8830-2a28b86acabe#data-flow-diagram" rel="nofollow">Data Flow Diagram</a></p></li><li><p><a class="external-link" href="https://claude.ai/chat/cb84e335-df99-49cb-8830-2a28b86acabe#what-each-file-does" rel="nofollow">What Each File Does</a></p></li><li><p><a class="external-link" href="https://claude.ai/chat/cb84e335-df99-49cb-8830-2a28b86acabe#testing-the-connection" rel="nofollow">Testing the Connection</a></p></li><li><p><a class="external-link" href="https://claude.ai/chat/cb84e335-df99-49cb-8830-2a28b86acabe#troubleshooting" rel="nofollow">Troubleshooting</a></p></li><li><p><a class="external-link" href="https://claude.ai/chat/cb84e335-df99-49cb-8830-2a28b86acabe#security-considerations" rel="nofollow">Security Considerations</a></p></li></ol><hr/><h2 id="APIIntegrationDocumentation-Overview">Overview</h2><p>This implementation creates a <strong>complete bridge</strong> between your Spring Boot backend (port 8080) and React frontend (port 3000/5173). The connection uses REST API calls over HTTP.</p><h3 id="APIIntegrationDocumentation-ArchitectureSummary:">Architecture Summary:</h3><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">React App (Frontend)          Spring Boot (Backend)
+    Port 3000                     Port 8080
+        │                             │
+        ├──── HTTP Requests ────────►│
+        │     (GET/POST/PUT/DELETE)  │
+        │                             │
+        │◄──── JSON Responses ───────┤
+        │                             │
+</pre>
+</div></div><hr/><h2 id="APIIntegrationDocumentation-HowTheConnectionWorks-StepbyStep">How The Connection Works - Step by Step</h2><h3 id="APIIntegrationDocumentation-🔄CompleteRequestLifecycle">🔄 Complete Request Lifecycle</h3><p>Let's trace a single API call from button click to data display:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">1. USER CLICKS &quot;Create Project&quot; BUTTON
+   └─► React Component (ProjectDashboard.tsx)
+
+2. COMPONENT CALLS SERVICE
+   └─► projectService.create({ title: &quot;New Project&quot; })
+
+3. SERVICE PREPARES REQUEST
+   └─► Adds base URL: http://localhost:8080/api/v1/projects
+   └─► Sets headers: Content-Type: application/json
+   └─► Converts data to JSON
+
+4. FETCH API SENDS HTTP REQUEST
+   └─► POST http://localhost:8080/api/v1/projects
+   └─► Body: {&quot;title&quot;: &quot;New Project&quot;}
+
+5. SPRING BOOT RECEIVES REQUEST
+   └─► CORS filter allows the request (from localhost:3000)
+   └─► ProjectController.create() method executes
+   └─► Saves to MongoDB
+   └─► Returns JSON response
+
+6. FRONTEND RECEIVES RESPONSE
+   └─► api.ts handleResponse() processes it
+   └─► Converts JSON to JavaScript object
+   └─► Returns to service layer
+
+7. SERVICE RETURNS TO COMPONENT
+   └─► Component receives the new project object
+   └─► Updates state
+   └─► Re-renders UI with new data
+</pre>
+</div></div><h3 id="APIIntegrationDocumentation-🔍DetailedCodeFlow">🔍 Detailed Code Flow</h3><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">// 1. Component initiates action
+const handleCreateProject = () =&gt; {
+  projectService.create(data, userId)  // Calls service
+}
+
+// 2. Service formats the request
+projectService.create = (data, userId) =&gt; {
+  return apiService.post(&#39;api/v1/projects&#39;, data, {
+    headers: { &#39;X-User-Id&#39;: userId }
+  })
+}
+
+// 3. API service sends HTTP request
+apiService.post = (path, data) =&gt; {
+  return fetch(&#39;http://localhost:8080/api/v1/projects&#39;, {
+    method: &#39;POST&#39;,
+    headers: { &#39;Content-Type&#39;: &#39;application/json&#39; },
+    body: JSON.stringify(data)
+  })
+}
+
+// 4. Backend processes (Java)
+@PostMapping
+public ResponseEntity&lt;ProjectResponse&gt; create(@RequestBody ProjectCreateRequest req) {
+  Project saved = service.create(req);
+  return ResponseEntity.ok(saved);
+}
+
+// 5. Frontend processes response
+handleResponse = (response) =&gt; {
+  if (!response.ok) throw new Error();
+  return response.json();  // Parse JSON
+}
+
+// 6. Component updates UI
+.then(project =&gt; {
+  setProjects([...projects, project]);  // Add to list
+  setShowSuccess(true);                 // Show success message
+})
+</pre>
+</div></div><hr/><h2 id="APIIntegrationDocumentation-DataFlowDiagram">Data Flow Diagram</h2><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">┌─────────────────────────────────────────────────────────────┐
+│                        REACT FRONTEND                        │
+├─────────────────────────────────────────────────────────────┤
+│                                                              │
+│  Component (UI) ◄──────┐                                    │
+│       ▲                │                                    │
+│       │                │                                    │
+│       ▼                ▼                                    │
+│  Custom Hooks    State Management                           │
+│   (useApi.ts)     (useState)                                │
+│       ▲                                                     │
+│       │                                                     │
+│       ▼                                                     │
+│  Service Layer                                              │
+│  (projectService.ts, userService.ts, staffCostService.ts)  │
+│       ▲                                                     │
+│       │                                                     │
+│       ▼                                                     │
+│  API Layer                                                  │
+│  (api.ts + config.ts)                                       │
+│       ▲                                                     │
+└───────┼─────────────────────────────────────────────────────┘
+        │
+        │ HTTP/REST
+        │ JSON Data
+        ▼
+┌─────────────────────────────────────────────────────────────┐
+│                      SPRING BOOT BACKEND                     │
+├─────────────────────────────────────────────────────────────┤
+│                                                              │
+│  CORS Filter                                                │
+│       │                                                     │
+│       ▼                                                     │
+│  Controllers                                                │
+│  (@RestController)                                          │
+│       │                                                     │
+│       ▼                                                     │
+│  Service Layer                                              │
+│  (Business Logic)                                           │
+│       │                                                     │
+│       ▼                                                     │
+│  Repository Layer                                           │
+│       │                                                     │
+│       ├──► MongoDB                                          │
+│       └──► PostgreSQL                                       │
+│                                                             │
+└─────────────────────────────────────────────────────────────┘
+</pre>
+</div></div><hr/><h2 id="APIIntegrationDocumentation-WhatEachFileDoes">What Each File Does</h2><h3 id="APIIntegrationDocumentation-FrontendFiles(React)">Frontend Files (React)</h3><h4 id="APIIntegrationDocumentation-1.config.ts-ConfigurationCenter">1. <strong>config.ts</strong> - Configuration Center</h4><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">// What it does:
+- Reads environment variables (VITE_API_BASE_URL)
+- Determines if app is in development or production
+- Provides base URL for all API calls
+- Sets default headers for requests
+
+// Why it&#39;s needed:
+- Centralizes configuration
+- Makes it easy to switch between dev/prod
+- Prevents hardcoded URLs throughout the app
+</pre>
+</div></div><h4 id="APIIntegrationDocumentation-2.api.ts-HTTPRequestHandler">2. <strong>api.ts</strong> - HTTP Request Handler</h4><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">// What it does:
+- Sends actual HTTP requests using fetch()
+- Handles all HTTP methods (GET, POST, PUT, DELETE)
+- Processes responses and errors
+- Adds authentication headers (when implemented)
+
+// Key functions:
+- handleResponse(): Parses JSON, handles errors
+- apiRequest(): Core function that makes the fetch call
+- apiService.get/post/put/delete: Convenience methods
+
+// Error handling:
+- Catches network errors
+- Parses error messages from backend
+- Throws standardized errors for components
+</pre>
+</div></div><h4 id="APIIntegrationDocumentation-3.projectService.ts-Project-SpecificLogic">3. <strong>projectService.ts</strong> - Project-Specific Logic</h4><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">// What it does:
+- Provides functions for all project operations
+- Maps backend DTOs to frontend types
+- Handles project-specific business logic
+
+// Example:
+projectService.create() → calls api.post() → returns typed Project object
+</pre>
+</div></div><h4 id="APIIntegrationDocumentation-4.useApi.ts-ReactHooks">4. <strong>useApi.ts</strong> - React Hooks</h4><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">// What it does:
+- Manages loading states automatically
+- Handles errors consistently
+- Provides refetch functionality
+- Implements pagination logic
+
+// Key hooks:
+- useApi(): Fetches data on component mount
+- useMutation(): Handles create/update/delete
+- usePagination(): Manages paginated lists
+</pre>
+</div></div><h4 id="APIIntegrationDocumentation-5.ProjectDashboard.tsx-UIComponent">5. <strong>ProjectDashboard.tsx</strong> - UI Component</h4><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">// What it does:
+- Renders the user interface
+- Uses hooks to fetch data
+- Handles user interactions
+- Updates UI based on API responses
+</pre>
+</div></div><h3 id="APIIntegrationDocumentation-BackendFiles(SpringBoot)">Backend Files (Spring Boot)</h3><h4 id="APIIntegrationDocumentation-1.CorsSecurityConfig.java-CORSConfiguration">1. <strong>CorsSecurityConfig.java</strong> - CORS Configuration</h4><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">// What it does:
+- Allows frontend (localhost:3000) to access backend
+- Specifies allowed HTTP methods
+- Sets allowed headers
+- Without this, browser blocks the requests
+</pre>
+</div></div><h4 id="APIIntegrationDocumentation-2.ProjectController.java-RESTEndpoints">2. <strong>ProjectController.java</strong> - REST Endpoints</h4><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">// What it does:
+- Receives HTTP requests
+- Validates input data
+- Calls service layer
+- Returns JSON responses
+</pre>
+</div></div><hr/><h2 id="APIIntegrationDocumentation-TestingtheConnection">Testing the Connection</h2><h3 id="APIIntegrationDocumentation-Step1:VerifyBackendisRunning">Step 1: Verify Backend is Running</h3><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence"># In browser or terminal:
+curl http://localhost:8080/api/v1/projects
+# Should return JSON (empty array or projects)
+</pre>
+</div></div><h3 id="APIIntegrationDocumentation-Step2:TestFrontendConnection">Step 2: Test Frontend Connection</h3><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">// In browser console (with frontend running):
+fetch(&#39;http://localhost:8080/api/v1/projects&#39;)
+  .then(r =&gt; r.json())
+  .then(console.log)
+  .catch(console.error)
+</pre>
+</div></div><h3 id="APIIntegrationDocumentation-Step3:CheckCORS">Step 3: Check CORS</h3><p>Look for this header in the response:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">Access-Control-Allow-Origin: http://localhost:3000
+</pre>
+</div></div><h3 id="APIIntegrationDocumentation-Step4:TestCompleteFlow">Step 4: Test Complete Flow</h3><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">// Add this temporary test component
+function ConnectionTest() {
+  const [status, setStatus] = useState(&#39;Testing...&#39;);
+  
+  useEffect(() =&gt; {
+    projectService.list({ page: 0, size: 1 })
+      .then(() =&gt; setStatus(&#39;✅ Connected!&#39;))
+      .catch(err =&gt; setStatus(`❌ Error: ${err.message}`));
+  }, []);
+  
+  return &lt;div&gt;{status}&lt;/div&gt;;
+}
+</pre>
+</div></div><hr/><h2 id="APIIntegrationDocumentation-Troubleshooting">Troubleshooting</h2><h3 id="APIIntegrationDocumentation-CommonIssuesandSolutions:">Common Issues and Solutions:</h3><h4 id="APIIntegrationDocumentation-1.&quot;CORSError&quot;">1. &quot;CORS Error&quot;</h4><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">Error: Access to fetch at &#39;http://localhost:8080/api/v1/projects&#39; from origin &#39;http://localhost:3000&#39; has been blocked by CORS policy
+</pre>
+</div></div><p><strong>Solution:</strong></p><ul><li><p>Verify backend CorsSecurityConfig includes your frontend URL</p></li><li><p>Make sure backend is running</p></li><li><p>Check if you're using the correct ports</p></li></ul><h4 id="APIIntegrationDocumentation-2.&quot;ConnectionRefused&quot;">2. &quot;Connection Refused&quot;</h4><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">Error: Failed to fetch - net::ERR_CONNECTION_REFUSED
+</pre>
+</div></div><p><strong>Solution:</strong></p><ul><li><p>Backend is not running → Start with <code>mvn spring-boot:run</code></p></li><li><p>Wrong port → Check VITE_API_BASE_URL in .env</p></li></ul><h4 id="APIIntegrationDocumentation-3.&quot;404NotFound&quot;">3. &quot;404 Not Found&quot;</h4><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">Error: API Error 404: Not Found
+</pre>
+</div></div><p><strong>Solution:</strong></p><ul><li><p>Wrong endpoint URL → Check the path in service files</p></li><li><p>Missing <code>/api/v1/</code> prefix in the URL</p></li></ul><h4 id="APIIntegrationDocumentation-4.&quot;NoDataShowing&quot;">4. &quot;No Data Showing&quot;</h4><p><strong>Solution:</strong></p><ul><li><p>Check browser DevTools Network tab</p></li><li><p>Verify response contains data</p></li><li><p>Check console for JavaScript errors</p></li><li><p>Ensure state is updating correctly</p></li></ul><hr/><h2 id="APIIntegrationDocumentation-SecurityConsiderations">Security Considerations</h2><h3 id="APIIntegrationDocumentation-CurrentImplementation:">Current Implementation:</h3><ul><li><p>❌ <strong>No Authentication</strong> - Anyone can access the API</p></li><li><p>❌ <strong>No Authorization</strong> - No role-based access control</p></li><li><p>✅ <strong>CORS Configured</strong> - Only specified origins can access</p></li><li><p>✅ <strong>Input Validation</strong> - Backend validates data</p></li></ul><h3 id="APIIntegrationDocumentation-ForProduction:">For Production:</h3><ol start="1"><li><p><strong>Add JWT Authentication</strong></p></li><li><p><strong>Implement HTTPS</strong></p></li><li><p><strong>Add Rate Limiting</strong></p></li><li><p><strong>Validate all inputs</strong></p></li><li><p><strong>Sanitize data before displaying</strong></p></li><li><p><strong>Use environment variables for sensitive data</strong></p></li></ol><hr/><h2 id="APIIntegrationDocumentation-QuickReference">Quick Reference</h2><h3 id="APIIntegrationDocumentation-ToMakeanAPICall:">To Make an API Call:</h3><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">// In any component
+import { projectService } from &#39;../services/projectService&#39;;
+
+// Fetch data
+const projects = await projectService.list();
+
+// Create
+const newProject = await projectService.create(data, userId);
+
+// Update
+const updated = await projectService.update(id, data);
+
+// Delete
+await projectService.delete(id);
+</pre>
+</div></div><h3 id="APIIntegrationDocumentation-ToHandleLoading/Errors:">To Handle Loading/Errors:</h3><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">// Use the provided hooks
+const { data, loading, error, refetch } = useApi(
+  () =&gt; projectService.list(),
+  [] // dependencies
+);
+
+if (loading) return &lt;div&gt;Loading...&lt;/div&gt;;
+if (error) return &lt;div&gt;Error: {error.message}&lt;/div&gt;;
+return &lt;div&gt;{data.map(...)}&lt;/div&gt;;
+</pre>
+</div></div>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Mar 03, 2026 12:01</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

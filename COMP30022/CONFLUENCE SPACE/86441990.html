@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Group Twenty Two Project : Ethics + Security Report</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Group Twenty Two Project</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Group-Twenty-Two-Project_622858.html">Group Twenty Two Project</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="._146866177.html">.</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Presentation-and-Handover_72744969.html">Presentation and Handover</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Group Twenty Two Project : Ethics + Security Report
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Jay Schellens</span>, last modified on Nov 12, 2025
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p><strong>Security: Discuss the security issues in your project and how you addressed them. </strong></p><p>Security should always be an important and conscious consideration when developing a web application. Safely collecting and storing personal data is a huge responsibility of the developers. Our project is a web tool to help researchers create budgets and determine the pricing available from external funders. The data stored from these research projects is not highly sensitive, however, we have made several conscious design decisions to protect our database as it is a good practice. For our databases, we chose MongoDB and PostgreSQL for their strong built-in security features, including robust authentication, encryption, and access control mechanisms that help protect sensitive data from unauthorized access. We also restricted MongoDB Atlas access to Render static outbound IPs. </p><p>For communication between the frontend and backend, we enforced HTTPS to ensure that all data is transmitted over an encrypted connection. We also configured CORS (Cross-Origin Resource Sharing) rules carefully, only allowing requests from our approved frontend domains. This prevents unauthorised sites from sending requests to our backend or reading user data. To protect our database and prevent injection attacks, we used parameterised queries and validated all inputs both on the client and server sides. Input validation stops malicious users from submitting unexpected or harmful data through forms. On the frontend, form validation provides immediate feedback to users, while backend validation ensures that invalid or malicious requests are still blocked even if someone bypasses the interface.</p><p>One of our main threats we noted was password leaks. For this reason, we used Firebase for Google authentication, rather than developing our own login system where we store each user’s password. It handles these sensitive credentials safely and protects against password leaks or identity spoofing through Google’s trusted OAuth 2.0 framework. We also placed restrictions on the configured authorised domains, preventing other websites or developers from misusing our Firebase API key. All our current API keys and other secrets were never committed to version control but instead stored using Render’s environment management system to securely inject variables at runtime. We only had one instance of an API key being exposed, in which case we changed it immediately.</p><p>One remaining risk we have noticed is the access to admin settings. This feature has not been protected by an admin password and is currently accessible to all user types. It is important to make this feature more secure as it gives the user the ability to modify internal values. A future improvement, and one we noted in our handover document to the client would be to allow only admin users to see this feature or protect it with a password. This feature is critical and was noted to be completed before full user interactions.</p><p /><p><strong>Ethics: Discuss ethical issues that arise from your project</strong></p><p>Ethical considerations are just as important as technical ones. Our main considerations throughout this project revolved around issues of privacy, data ownership, fairness, accessibility, and transparency.</p><p>First, data privacy and consent were major priorities. The data we collect is minimal, primarily login information handled by Firebase Authentication. This external  tool safely manages the actual login process so we never see or store passwords ourselves. Users are clearly informed that their Google account is being used for identification. We have this ethical responsibility to ensure users understand what data is stored and why. In the future, we aim to make this even clearer by adding consent screens and privacy information during sign-up.</p><p>Fairness and bias were also discussed during development. While our system doesn’t perform algorithmic decision making, it calculates values such as staff rates and cost estimates. We checked that these calculations were based purely on neutral factors like time or role, avoiding any design that could unintentionally disadvantage specific users based on gender, ethnicity etc. Fairness means ensuring that no group or individual is treated differently by the system’s logic.</p><p>Transparency is another core principle. Users should be able to understand how their data is used and how results are produced. Where possible, we made calculation processes visible and added clear UI explanations for administrative actions. Similarly, we practiced transparency in our codebase by writing readable, well-commented logic that can be reviewed or audited by any future developers.</p><p>Accessibility was our principal ethical consideration and therefore something we took very seriously. Every user, including those with disabilities, should be able to interact with our application easily and effectively. We chose the shadcn/ui component library because it provides prebuilt, accessible UI components with good colour contrast and keyboard navigation support. Clear labels and form validation messages help all users interact confidently with the system.</p><p>Throughout the project, we referred to the ACS Code of Ethics, which emphasises values such as honesty, competence, and the primacy of the public interest. Our authentication and validation logic directly reflect these values by safeguarding users’ trust and data. Future improvements include adding dedicated accessibility testing, clearer privacy policies, and ongoing ethical reviews as new features are developed. By embedding ethics into both design and implementation, we ensure that the system remains responsible, inclusive, and respectful toward all users.</p>
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/86441990/85590083.png">image-20251026-051706.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Mar 03, 2026 12:01</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

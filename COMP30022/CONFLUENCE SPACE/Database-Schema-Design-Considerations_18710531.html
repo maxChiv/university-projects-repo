@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Group Twenty Two Project : Database Schema Design Considerations</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Group Twenty Two Project</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Group-Twenty-Two-Project_622858.html">Group Twenty Two Project</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="._146866177.html">.</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="8617989.html">📘 Design Documentation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Architectural-Design_14155789.html">Architectural Design</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Database-Schema-Files_20152322.html">Database Schema Files</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Group Twenty Two Project : Database Schema Design Considerations
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Eugene Yap</span> on Sept 04, 2025
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>The <strong>hybrid method</strong> (SQL for lookup tables, JSON for project data and flexible sections) is not only good, it matches both the RCPT’s original design intent and the domain model. </p><ol start="1"><li><p><strong>Lookup tables are the backbone of RCPT</strong><br/>The user manual and functional requirements highlight that <em>salary rates, cost recovery multipliers, departments, schemes, currencies, etc.</em> are all maintained as “lookup tables”. These need to be reliable, queryable, and updateable by admins, which makes a relational SQL structure ideal.</p></li><li><p><strong>Flexible project and costing data</strong><br/>The domain model shows entities like <em>ProjectDetails, StaffCosts, NonStaffCosts, PriceSummary, ApprovalTracker</em>. Many of these contain funder-specific or department-specific fields (e.g., in-kind costs, indirect multipliers, deliverables). Requirements mention undo/back and “staged JSON versions” for projects. That’s a clear case where JSON storage  is more practical than endlessly altering SQL schemas.</p></li><li><p><strong>Compliance &amp; workflow</strong><br/>Approvals, roles (admin/approver/user), and authorisation flows are well suited to SQL tables with clear FKs and audit logs. But attaching <em>comments, notes, or metadata</em> to these records is lighter with JSON.</p></li><li><p><strong>Future-proofing</strong><br/>The RCPT manual stresses that funding rules change frequently (salary increments, indirect rates, scheme-specific rules). A hybrid model means your <strong>lookup SQL tables</strong> handle stable, structured rules, while JSON fields handle evolving or scheme-specific extras without schema rewrites.</p></li></ol><p />
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/18710531/91062287.png">Look Up Table Schema.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Mar 03, 2026 12:01</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

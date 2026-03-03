@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Group Twenty Two Project : Backend Documentation</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Group Twenty Two Project</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Group-Twenty-Two-Project_622858.html">Group Twenty Two Project</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="._146866177.html">.</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="23986177.html">&lt;/&gt; Development Documentation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Backend_47316994.html">Backend</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Group Twenty Two Project : Backend Documentation
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Eugene Yap</span>, last modified on Oct 26, 2025
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <h2 id="BackendDocumentation-1.Overview">1. Overview</h2><p>The RCPT backend provides the <strong>core business logic, data management, and API endpoints</strong> for the Research Costing and Pricing Tool — a web-based reimplementation of the University of Melbourne’s Excel-based RCPT workbook.<br/>Its purpose is to let researchers and administrators:</p><ul><li><p>Create and edit research project budgets (Staff Costs, Non-Staff Costs, Price Summary, etc.)</p></li><li><p>Automatically calculate full cost recovery, on-costs, and indirect rates</p></li><li><p>Manage project approvals (Head of Department → Dean → RIC)</p></li><li><p>Export approved budgets to PDF/CSV</p></li><li><p>Provide admin configuration of lookup data (salary tables, EBAs, multipliers)</p></li></ul><hr/><h2 id="BackendDocumentation-2.ArchitectureSummary">2. Architecture Summary</h2><h3 id="BackendDocumentation-TechStack">Tech Stack</h3><ul><li><p><strong>Language / Framework:</strong> Java 17 + Spring Boot</p></li><li><p><strong>Persistence:</strong> JPA with hybrid database design:</p><ul><li><p><strong>PostgreSQL</strong> for lookup tables and structured reference data</p></li><li><p><strong>MongoDB</strong> for flexible project JSONs and versioned costing data</p></li></ul></li><li><p><strong>Auth:</strong> Firebase Authentication (frontend) linked to Spring Boot backend</p></li><li><p><strong>Build &amp; Dependency:</strong> Maven (<code>maven-compiler-plugin 3.14.0</code>)</p></li><li><p><strong>Deployment:</strong> Docker Compose with separate containers for backend, lookup service, MongoDB, and Postgres.</p></li></ul><hr/><h2 id="BackendDocumentation-3.LayeredDesign">3. Layered Design</h2><p>The backend follows a <strong>domain-driven architecture</strong>:</p><div class="table-wrap"><table data-table-width="760" data-layout="default" data-local-id="094fb95c-c968-4222-8c58-771770f1a0f7" class="confluenceTable"><tbody><tr><th class="confluenceTh"><p>Layer</p></th><th class="confluenceTh"><p>Purpose</p></th><th class="confluenceTh"><p>Example</p></th></tr><tr><td class="confluenceTd"><p><strong>Domain</strong></p></td><td class="confluenceTd"><p>Entity models that represent core RCPT concepts.</p></td><td class="confluenceTd"><p><code>User</code>, <code>Project</code>, <code>StaffCost</code>, <code>NonStaffCost</code>, <code>ApprovalTracker</code>, <code>PriceSummary</code></p></td></tr><tr><td class="confluenceTd"><p><strong>DTOs</strong></p></td><td class="confluenceTd"><p>Data transfer objects used between backend and frontend to decouple domain logic.</p></td><td class="confluenceTd"><p><code>ProjectResponse</code>, <code>UserResponse</code>, <code>ApprovalResponse</code></p></td></tr><tr><td class="confluenceTd"><p><strong>Repositories</strong></p></td><td class="confluenceTd"><p>JPA/Mongo repositories handling persistence.</p></td><td class="confluenceTd"><p><code>ProjectRepository</code>, <code>StaffCostRepository</code>, <code>ApprovalTrackerRepository</code></p></td></tr><tr><td class="confluenceTd"><p><strong>Service Layer</strong></p></td><td class="confluenceTd"><p>Business logic: calculations, validations, approval state transitions.</p></td><td class="confluenceTd"><p><code>ApprovalService</code>, <code>ProjectService</code>, <code>CalculationService</code></p></td></tr><tr><td class="confluenceTd"><p><strong>Controllers</strong></p></td><td class="confluenceTd"><p>REST endpoints exposed to frontend.</p></td><td class="confluenceTd"><p><code>/api/v1/projects</code>, <code>/api/v1/projects/{id}/approvals</code></p></td></tr></tbody></table></div><hr/><h2 id="BackendDocumentation-4.DomainModel(Simplified)">4. Domain Model (Simplified)</h2><p>Based on the finalised UML:</p><h3 id="BackendDocumentation-CoreEntities">Core Entities</h3><ul><li><p><strong>User</strong></p><ul><li><p>Attributes: <code>userId</code>, <code>name</code>, <code>email</code>, <code>isAdmin</code>, <code>isApprover</code></p></li><li><p>Relationships: controls multiple <code>Project</code>s.</p></li><li><p>Linked to Firebase UID for authentication.</p></li></ul></li><li><p><strong>Project</strong></p><ul><li><p>Contains:</p><ul><li><p><code>ProjectDetails</code> – title, funder, department, faculty, scheme, duration, currency.</p></li><li><p><code>StaffCosts</code> – role, category, employment type, FTE/hourly, salary rate, cost recovery multiplier.</p></li><li><p><code>NonStaffCosts</code> – cost type, isInKind flag, GST, indirect rate.</p></li><li><p><code>PriceSummary</code> – total cost, currency, indirect multiplier, price to charge.</p></li><li><p><code>BudgetForm</code> – summary of project data for approvals.</p></li></ul></li></ul></li><li><p><strong>ApprovalTracker</strong></p><ul><li><p>Tracks approval status transitions (draft → submitted → approved).</p></li><li><p>Records actor, timestamp, and comments.</p></li></ul></li><li><p><strong>LookupDataHandler</strong></p><ul><li><p>Provides backend configuration (salary rates, EBAs, super, tax, cost recovery multipliers, etc.).</p></li><li><p>Admins can modify through a protected endpoint.</p></li></ul></li></ul><hr/><h2 id="BackendDocumentation-5.Authentication&amp;UserManagement">5. Authentication &amp; User Management</h2><ul><li><p><strong>Firebase Authentication</strong> provides token-based login from the frontend.</p></li><li><p>Backend validates tokens using Firebase Admin SDK.</p></li><li><p>Each user is persisted in Postgres with <code>firebaseUid</code> and role attributes (<code>isAdmin</code>, <code>isApprover</code>).</p></li><li><p>Role-based access control (RBAC):</p><ul><li><p><strong>Candidate (Researcher):</strong> create/edit projects</p></li><li><p><strong>Approver:</strong> review and comment</p></li><li><p><strong>Admin:</strong> modify lookup data and manage users</p></li></ul></li></ul><hr/><h2 id="BackendDocumentation-6.CoreFunctionalities(MappedfromRequirements)">6. Core Functionalities (Mapped from Requirements)</h2><div class="table-wrap"><table data-table-width="760" data-layout="default" data-local-id="0b962734-dad6-4431-9cd9-754b6abce381" class="confluenceTable"><tbody><tr><th class="confluenceTh"><p>Category</p></th><th class="confluenceTh"><p>Features</p></th><th class="confluenceTh"><p>Source</p></th></tr><tr><td class="confluenceTd"><p><strong>Project Data Entry</strong></p></td><td class="confluenceTd"><p>Web-form editing of project details, staff, and non-staff costs</p></td><td class="confluenceTd"><p>Functional Requirements</p></td></tr><tr><td class="confluenceTd"><p><strong>Costing Engine</strong></p></td><td class="confluenceTd"><p>Salary + On-Cost + Indirect calculation (Full Cost Recovery)</p></td><td class="confluenceTd"><p>Derived from RCPT workbook</p></td></tr><tr><td class="confluenceTd"><p><strong>Approval Workflow</strong></p></td><td class="confluenceTd"><p>Status tracking (draft, submitted, approved), with feedback threads</p></td><td class="confluenceTd"><p>Functional Requirements</p></td></tr><tr><td class="confluenceTd"><p><strong>Lookup Tables</strong></p></td><td class="confluenceTd"><p>Editable via admin panel (salary rates, EBA, recovery multipliers)</p></td><td class="confluenceTd"><p>Domain Model &amp; Requirements</p></td></tr><tr><td class="confluenceTd"><p><strong>Reporting</strong></p></td><td class="confluenceTd"><p>Generate Budget Form PDF, Offer Letter PDF</p></td><td class="confluenceTd"><p>Functional Requirements</p></td></tr><tr><td class="confluenceTd"><p><strong>Audit Logging</strong></p></td><td class="confluenceTd"><p>Logs edits, approvals, and comments per user</p></td><td class="confluenceTd"><p>Functional Requirements</p></td></tr><tr><td class="confluenceTd"><p><strong>Currency Support</strong></p></td><td class="confluenceTd"><p>Multi-currency with live exchange rates</p></td><td class="confluenceTd"><p>Functional Requirements</p></td></tr><tr><td class="confluenceTd"><p><strong>In-Kind Contributions</strong></p></td><td class="confluenceTd"><p>Separate treatment for costs not billed to funder</p></td><td class="confluenceTd"><p>Functional Requirements</p></td></tr></tbody></table></div><hr/><h2 id="BackendDocumentation-7.DatabaseDesign">7. Database Design</h2><h3 id="BackendDocumentation-MongoDB(DynamicDocuments)">MongoDB (Dynamic Documents)</h3><ul><li><p>Stores live project data and versioned costing JSON.</p></li><li><p>Suitable for variable structures (different staff/non-staff configurations).</p></li><li><p>Example:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+  &quot;_id&quot;: &quot;proj_123&quot;,
+  &quot;userId&quot;: &quot;uid_abc&quot;,
+  &quot;projectDetails&quot;: {...},
+  &quot;staffCosts&quot;: [...],
+  &quot;nonStaffCosts&quot;: [...],
+  &quot;priceSummary&quot;: {...},
+  &quot;approvalStatus&quot;: &quot;submitted&quot;
+}
+</pre>
+</div></div></li></ul><h3 id="BackendDocumentation-PostgreSQL(ReferenceTables)">PostgreSQL (Reference Tables)</h3><ul><li><p>Stores static, structured data used across all projects.</p><ul><li><p>Salary bands</p></li><li><p>Cost recovery multipliers</p></li><li><p>Faculty departments</p></li><li><p>Research type lookup values</p></li></ul></li></ul><hr/><h2 id="BackendDocumentation-8.APIStructure(Representative)">8. API Structure (Representative)</h2><div class="table-wrap"><table data-table-width="760" data-layout="default" data-local-id="d211a7f4-af81-46f6-b040-5ad455e4e46e" class="confluenceTable"><tbody><tr><th class="confluenceTh"><p>Method</p></th><th class="confluenceTh"><p>Endpoint</p></th><th class="confluenceTh"><p>Description</p></th></tr><tr><td class="confluenceTd"><p><code>POST</code></p></td><td class="confluenceTd"><p><code>/api/v1/projects</code></p></td><td class="confluenceTd"><p>Create new project</p></td></tr><tr><td class="confluenceTd"><p><code>GET</code></p></td><td class="confluenceTd"><p><code>/api/v1/projects/{id}</code></p></td><td class="confluenceTd"><p>Retrieve project details</p></td></tr><tr><td class="confluenceTd"><p><code>PUT</code></p></td><td class="confluenceTd"><p><code>/api/v1/projects/{id}</code></p></td><td class="confluenceTd"><p>Update project</p></td></tr><tr><td class="confluenceTd"><p><code>POST</code></p></td><td class="confluenceTd"><p><code>/api/v1/projects/{id}/submit</code></p></td><td class="confluenceTd"><p>Submit project for approval</p></td></tr><tr><td class="confluenceTd"><p><code>POST</code></p></td><td class="confluenceTd"><p><code>/api/v1/projects/{id}/approvals/{action}</code></p></td><td class="confluenceTd"><p>Approve or reject project</p></td></tr><tr><td class="confluenceTd"><p><code>GET</code></p></td><td class="confluenceTd"><p><code>/api/v1/admin/lookup</code></p></td><td class="confluenceTd"><p>Retrieve lookup data</p></td></tr><tr><td class="confluenceTd"><p><code>PUT</code></p></td><td class="confluenceTd"><p><code>/api/v1/admin/lookup</code></p></td><td class="confluenceTd"><p>Update lookup data (admin only)</p></td></tr></tbody></table></div><p>All endpoints are protected by Firebase JWT validation middleware.</p><hr/><h2 id="BackendDocumentation-9.DeploymentNotes">9. Deployment Notes</h2><ul><li><p><strong>Docker Compose services:</strong></p><ul><li><p><code>backend</code> → Spring Boot app</p></li><li><p><code>postgres</code> → relational lookup data</p></li><li><p><code>mongo</code> → project data</p></li><li><p><code>lookup-service</code> → salary &amp; multiplier sync</p></li></ul></li><li><p><code>.env</code> contains sensitive keys (Firebase, DB creds) — <strong>excluded via </strong><code>.gitignore</code></p></li><li><p>For deployment:</p><ol start="1"><li><p>Add <code>.env</code> file (Firebase + DB credentials)</p></li><li><p>Run <code>docker-compose up --build</code></p></li><li><p>Verify backend at <code>http://localhost:8080/api/v1/health</code></p></li></ol></li></ul>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Mar 03, 2026 12:01</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

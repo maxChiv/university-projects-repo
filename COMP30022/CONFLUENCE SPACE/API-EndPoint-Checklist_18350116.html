@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Group Twenty Two Project : API EndPoint Checklist</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Group Twenty Two Project</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Group-Twenty-Two-Project_622858.html">Group Twenty Two Project</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="._146866177.html">.</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="8617989.html">📘 Design Documentation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Architectural-Design_14155789.html">Architectural Design</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Group Twenty Two Project : API EndPoint Checklist
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Mitchell Pooley</span> on Sept 03, 2025
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>Before login:</p><ol start="1"><li><p>/</p></li></ol><p style="margin-left: 30.0px;">a.      NONE (Home page, links to sign up and login)</p><ol start="2"><li><p>/signup</p></li></ol><p style="margin-left: 30.0px;">a.      Users: PUT</p><ol start="3"><li><p>/login</p></li></ol><p style="margin-left: 30.0px;">a.      Users: GET</p><p>After login:</p><ol start="4"><li><p>/:userID/dashboard</p></li></ol><p style="margin-left: 30.0px;">a.      UserData: GET (Notification count, isAdmin)</p><p style="margin-left: 30.0px;">b.      ProjectData: Get (Project overview details and ProjectID)</p><p style="margin-left: 30.0px;">c.      ProjectData: PUT (Create a new project)</p><ol start="5"><li><p>/:userID/notifications</p></li></ol><p style="margin-left: 30.0px;">a.      UserData: GET (Notification message and ID)</p><ol start="6"><li><p>/:userID/notifications/:notificationID</p></li></ol><p style="margin-left: 30.0px;">a.      UserData: DELETE (Delete a notification)</p><p>Admin Settings:</p><ol start="7"><li><p>/:userID/admin/lookup</p></li></ol><p style="margin-left: 30.0px;">a.      LookUp: Get, PUT (Read and update the lockup tables)</p><p>Project View</p><ol start="8"><li><p>/:userID/:projectID/overview</p></li></ol><p style="margin-left: 30.0px;">a.      Permissions: Get (Check if the user has permission to view this page)</p><p style="margin-left: 30.0px;">b.      ProjectData: Get (Returns associated data from the database)</p><p style="margin-left: 30.0px;">c.      ProjectData: Put (Saves data to the database)</p><p style="margin-left: 30.0px;">d.      LookUp: Get</p><ol start="9"><li><p>/:userID/:projectID/cost</p></li></ol><p style="margin-left: 30.0px;">a.      Permissions: Get (Check if the user has permission to view this page)</p><p style="margin-left: 30.0px;">b.      ProjectData: Get (Returns associated data from the database)</p><p style="margin-left: 30.0px;">c.      ProjectData: Put (Saves data to the database)</p><p style="margin-left: 30.0px;">d.      LookUp: Get</p><p>10.  /:userID/:projectID/pricing</p><p style="margin-left: 30.0px;">a.      Permissions: Get (Check if the user has permission to view this page)</p><p style="margin-left: 30.0px;">b.      ProjectData: Get (Returns associated data from the database)</p><p style="margin-left: 30.0px;">c.      ProjectData: Put (Saves data to the database)</p><p style="margin-left: 30.0px;">d.      LookUp: Get</p><p>11.  /:userID/:projectID/pricing</p><p style="margin-left: 30.0px;">a.      Permissions: Get (Check if the user has permission to view this page)</p><p style="margin-left: 30.0px;">b.      ProjectData: Get (Returns associated data from the database)</p><p style="margin-left: 30.0px;">c.      LookUp: Get</p><p>12.  /:userID/:projectID/export</p><p style="margin-left: 30.0px;">a.      Permissions: Get (Check if the user has permission to view this page)</p><p style="margin-left: 30.0px;">b.      Summary: Create (Create a summary of the project and send it to the approver)</p><p>13.  /:userID/:projectID/review</p><p style="margin-left: 30.0px;">a.      Permissions: Get (Check if the user has permission to view this page)</p><p style="margin-left: 30.0px;">b.      ProjectData: Put (Approval/Disapproval flag with comment)</p>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Mar 03, 2026 12:00</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Group Twenty Two Project : UI design notes</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Group Twenty Two Project</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Group-Twenty-Two-Project_622858.html">Group Twenty Two Project</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="._146866177.html">.</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="8617989.html">📘 Design Documentation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="UI-Design-Documentation_14155777.html">UI Design Documentation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Low-fidelity-Model-Notes_17661973.html">Low-fidelity Model Notes</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Group Twenty Two Project : UI design notes
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Jay Schellens</span>, last modified on Sept 01, 2025
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>Inspiration: <a class="external-link" href="https://internationalstudenttravelpass.unimelb.edu.au/" rel="nofollow">Inspiration Melb Uni Web Page</a></p><p>A past project:  <span class="confluence-embedded-file-wrapper"><a class="confluence-embedded-file" href="attachments/13107421/13762567.pdf" data-nice-type="PDF Document" data-file-src="/wiki/download/attachments/13107421/UI%20Prototype.pdf?version=1&amp;modificationDate=1756103420402&amp;cacheVersion=1&amp;api=v2" data-linked-resource-id="13762567" data-linked-resource-type="attachment" data-linked-resource-container-id="13107421" data-linked-resource-default-alias="UI Prototype.pdf" data-mime-type="application/pdf" data-has-thumbnail="true" data-linked-resource-version="1" data-media-id="424fa421-868f-44cd-9529-808460d5deb8" data-media-type="file"><img src="attachments/thumbnails/13107421/13762567" height="250"/></a></span></p><p>From the lecture slides:</p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20250825-070543.png" width="528" loading="lazy" src="attachments/13107421/13991937.png?width=528" data-image-src="attachments/13107421/13991937.png" data-height="740" data-width="1426" data-unresolved-comment-count="0" data-linked-resource-id="13991937" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20250825-070543.png" data-base-url="https://teamtwentytwo.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="13107421" data-linked-resource-container-version="8" data-media-id="26627f63-e5d6-4d11-a019-bb6dd588b2c4" data-media-type="file"></span><hr/><p>other ideas:</p><ul><li><p>card based project tile which has an overview of information. </p></li><li><p>allows for multiple drafts of a project to be in iteration in the dashboard</p><ul><li><p>could also have a duplicate project functionality to ease this process</p></li></ul></li></ul><hr/><h2 id="UIdesignnotes-1.High-LevelInformationArchitecture(Pages)">1. High-Level Information Architecture (Pages)</h2><p>From the requirements, we see the following main pages:</p><ol start="1"><li><p><strong>Login / Landing Page</strong></p><ul><li><p>UoM branding</p></li></ul></li><li><p><strong>Dashboard</strong></p><ul><li><p>List of projects</p></li><li><p>&quot;Create New Project&quot; button</p></li><li><p>Notifications panel (pending approvals, comments, deadlines)</p></li><li><p>Admin-only view: system-wide visibility, update salary rates, manage workflows</p></li><li><p><strong>Approvals Workflow</strong></p><ul><li><p>Step-tracker (Draft → HoD → Dean → RIC → Approved)</p></li><li><p>Secure read-only approval view (shared link for approvers)</p></li><li><p>Approve / Reject / Request Changes buttons</p></li><li><p>Comment block</p></li></ul></li></ul></li><li><p><strong>Project Setup / Summary Page</strong></p><ul><li><p>Project details form (title, duration, faculty, funding type, attachments) stuff from excel</p></li><li><p>Project status indicator (draft → submitted → approved)</p></li><li><p>Inline validation (must complete required fields before continuing)</p></li><li><p><strong>Budget Summary View</strong></p><ul><li><p>Consolidated view of all cost and price data</p></li><li><p>Different &quot;modes&quot; (Budget Form, Oncost Calculator, TR1F if applicable), not completely necessary, but could be good to have different summary views. </p></li><li><p>Highlight non-compliance (e.g., failing multiplier check)</p></li><li><p>Export buttons (PDF, Excel)</p></li></ul></li></ul></li><li><p><strong>costing summary pages (with adding functionality)</strong></p><ul><li><p><strong>Staff Costs</strong></p><ul><li><p>Add staff member button </p></li><li><p>collapsible and expandable table oof summarised information</p></li><li><p>Timeline view for staff allocation (in expandable version) </p></li><li><p>Rolling cost total visible on sidebar??</p></li><li><p>In-kind contributions section??</p></li><li><p>group by type for clarity</p></li></ul></li><li><p><strong>Non-Staff Costs</strong></p><ul><li><p>Consumables, travel, equipment, services</p></li><li><p>Group by type for clarity ? </p></li></ul></li><li><p><strong>Oncosts View ????</strong></p><ul><li><p>Automatic calculation with editable overrides</p></li><li><p>Clear summary panel</p></li></ul></li></ul></li><li><p><strong>adding page</strong></p></li></ol><ul><li><p>add in a costing page for both types of costs</p></li><li><p>this is then adjustable and extendbile for a type of cost, or a type of entry </p></li></ul><ol start="6"><li><p><strong>Pricing &amp; Adjustments (could be placed inside the summary page as an editing functionality for these things) </strong></p><ul><li><p>Cost vs Price comparison</p></li><li><p>Margin/discount input fields (sliders or % inputs)</p></li><li><p>University’s recommended vs user-entered multipliers</p></li><li><p>Real-time recalculation display</p></li></ul></li><li><p><strong>Reports &amp; Exports</strong></p><ul><li><p>Choose export format (Budget form PDF, Offer Letter PDF, CSV, bulk export for admins)</p></li><li><p>History of exports (audit logging)</p></li></ul></li><li><p><strong>Admin Panel (for RIC) </strong></p><ul><li><p>Manage salary/indirect rates</p></li><li><p>Configure workflow steps</p></li><li><p>Dashboard with overview of all projects and statuses</p></li><li><p>Export multiple reports</p></li></ul></li></ol><hr/><h2 id="UIdesignnotes-2.CoreUserFlows">2. Core User Flows</h2><h3 id="UIdesignnotes-FlowA:Researchercreatingaproject">Flow A: Researcher creating a project</h3><ol start="1"><li><p>Dashboard → New Project</p></li><li><p>add in the details of the project from the adding form thats tailored for this. </p></li><li><p>Fill in <strong>Project Summary</strong> (basic details)</p></li><li><p>Saves this project to dashboard, and now editable </p></li></ol><h3 id="UIdesignnotes-FlowB:Approverreviewingaproject">Flow B: Approver reviewing a project</h3><ol start="1"><li><p>Email notification → Approval link (or login → dashboard)</p></li><li><p>Open project notification bell </p></li><li><p>See Budget Summary + step tracker</p></li><li><p>Leave comments (if any)</p></li><li><p>Approve / Request changes</p></li></ol><h3 id="UIdesignnotes-FlowC:Adminupdatingsystemrates">Flow C: Admin updating system rates</h3><ol start="1"><li><p>Login → Admin Dashboard</p></li><li><p>Navigate to <strong>System Configuration</strong></p></li><li><p>Update salary/indirect cost rates</p></li><li><p>Save → changes reflected in all new projects</p></li></ol><hr/><h2 id="UIdesignnotes-3.WireframeSketchConcepts(inwords)">3. Wireframe Sketch Concepts (in words)</h2><p>Think of these as <strong>modular views</strong> with a consistent left-nav:</p><ul><li><p><strong>Left Sidebar Navigation XXXX </strong></p><ul><li><p>Dashboard</p></li><li><p>Project Summary</p></li><li><p>Staff Costs</p></li><li><p>Non-Staff Costs</p></li><li><p>Approvals</p></li><li><p>Reports</p></li></ul></li><li><p><strong>Top Header Bar</strong></p><ul><li><p>Project title (editable inline)</p></li><li><p>Status indicator (draft/submitted/approved)</p></li><li><p>Export button</p></li><li><p>Notifications (bell icon with comments/approval requests)</p></li></ul></li><li><p><strong>Right Sidebar (Context Panel)</strong></p><ul><li><p>Inline help/tooltips</p></li><li><p>Running totals (cost/price, compliance alerts)</p></li><li><p>Contextual glossary definitions</p></li></ul></li></ul><p>Each cost-entry screen (Staff, Non-Staff) could be a <strong>table-like form</strong> with:</p><ul><li><p>Rows for entries (like Excel, but simpler)</p></li><li><p>“+ Add item” button</p></li><li><p>Totals updating in sidebar</p></li></ul><p />
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/13107421/13762567.pdf">UI Prototype.pdf</a> (application/pdf)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/13107421/13991937.png">image-20250825-070543.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Mar 03, 2026 12:00</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

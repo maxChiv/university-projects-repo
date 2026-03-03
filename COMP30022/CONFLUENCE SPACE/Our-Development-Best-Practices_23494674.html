@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Group Twenty Two Project : Our Development Best Practices</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Group Twenty Two Project</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Group-Twenty-Two-Project_622858.html">Group Twenty Two Project</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="._146866177.html">.</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="23986177.html">&lt;/&gt; Development Documentation</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Group Twenty Two Project : Our Development Best Practices
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Max Chivers</span>, last modified on Sept 10, 2025
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>This document outlines our team’s conventions and workflow for collaborating on this project. Following these practices will help us keep the codebase clean, consistent, and reliable.</p><p>Below each section there will be some additional links for similar reading.</p><hr/><h2 id="OurDevelopmentBestPractices-OverviewofWorkflow:"><strong>Overview of Workflow:</strong></h2><p>We will follow a similar workflow suggesting in the lectures. </p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20250910-063314.png" width="645" loading="lazy" src="attachments/23494674/24412162.png?width=645" data-image-src="attachments/23494674/24412162.png" data-height="475" data-width="645" data-unresolved-comment-count="0" data-linked-resource-id="24412162" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20250910-063314.png" data-base-url="https://teamtwentytwo.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="23494674" data-linked-resource-container-version="2" data-media-id="cc778a7c-0f76-4b71-b10c-63a97607f974" data-media-type="file"></span><hr/><h2 id="OurDevelopmentBestPractices-1.CodingStandards&amp;StyleGuide">1. Coding Standards &amp; Style Guide</h2><ul><li><p><strong>Naming Conventions</strong>:</p><ul><li><p>Use <code>camelCase</code> for variables and functions.</p></li><li><p><code>PascalCase</code> for React components and Java classes.</p></li><li><p>Consistent and descriptive naming is expected.</p></li></ul></li><li><p><strong>Linting/Formatting</strong>:</p><ul><li><p>Frontend: ESLint + Prettier.</p></li><li><p>Backend: Follow standard Java conventions, use Checkstyle or Spotless.</p></li><li><p>Code must pass lint checks before merging.</p></li></ul></li><li><p><a class="external-link" href="https://google.github.io/styleguide/" rel="nofollow">Google Style Guides</a></p></li><li><p><a class="external-link" href="https://eslint.org/docs/latest/use/getting-started" rel="nofollow">ESLint Getting Started</a></p></li><li><p><a class="external-link" href="https://prettier.io/docs/en/index.html" rel="nofollow">Prettier Documentation</a></p></li><li><p><a class="external-link" href="https://reflectoring.io/spring-boot-code-style/" rel="nofollow">Spring Boot Code Style Guidelines</a></p></li></ul><hr/><h2 id="OurDevelopmentBestPractices-2.BranchingStrategy">2. Branching Strategy</h2><ul><li><p><strong>Main branches</strong>:</p><ul><li><p><code>main</code>: stable production-ready code.</p></li><li><p><code>develop</code>: integration branch for features/bugfixes.</p></li></ul></li><li><p><strong>Feature branches</strong>:</p><ul><li><p>Name format: <code>feature/&lt;card-id&gt;-&lt;short-description&gt;</code></p><ul><li><p>Example: <code>feature/19-user-authentication</code></p></li></ul></li></ul></li><li><p><strong>Bugfix branches</strong>:</p><ul><li><p>Name format: <code>bugfix/&lt;card-id&gt;-&lt;short-description&gt;</code></p><ul><li><p>Example: <code>bugfix/20-login-null-pointer</code></p></li></ul></li></ul></li><li><p><strong>Flow</strong>:</p><ul><li><p>Feature/bugfix branches → Pull Request into <code>develop</code>.</p></li><li><p><code>develop</code> → Pull Request into <code>main</code> at sprint end or major release.</p></li></ul></li></ul><p>*** Note <em>:</em>* Card ID can be found in the Trello URL link</p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20250910-063338.png" width="730" loading="lazy" src="attachments/23494674/25133058.png?width=730" data-image-src="attachments/23494674/25133058.png" data-height="485" data-width="961" data-unresolved-comment-count="0" data-linked-resource-id="25133058" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20250910-063338.png" data-base-url="https://teamtwentytwo.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="23494674" data-linked-resource-container-version="2" data-media-id="2d3169d4-1f30-4ad6-a632-dd3ad13015fb" data-media-type="file"></span><p style="margin-left: 30.0px;"></p><p><a class="external-link" href="https://nvie.com/posts/a-successful-git-branching-model/" rel="nofollow">Git branching Model</a></p><hr/><h2 id="OurDevelopmentBestPractices-3.PullRequestGuidelines">3. Pull Request Guidelines</h2><ul><li><p><strong>PR Template</strong>: Required.</p></li><li><p><strong>Reviewers</strong>: At least <strong>1</strong> reviewer from the team (anyone).</p></li><li><p><strong>Content</strong>:</p><ul><li><p>Keep PRs meaningful and focused.</p></li><li><p>PR description is flexible — include anything useful (linked issue/Trello card, screenshots, notes).</p></li></ul></li><li><p><strong>Merging</strong>:</p><ul><li><p>Only after all checks pass and review approval is given.</p></li></ul></li></ul><h3 id="OurDevelopmentBestPractices-CodeReviewGuidelines">Code Review Guidelines</h3><p><strong>What to Look For:</strong></p><ul><li><p><strong>Design</strong>: Is the code well-designed and appropriate for your system?</p></li><li><p><strong>Functionality</strong>: Does the code behave as the author likely intended? Is the way the code behaves good for its users?</p></li><li><p><strong>Complexity</strong>: Could the code be made simpler? Would another developer be able to easily understand and use this code when they come across it in the future?</p></li><li><p><strong>Tests</strong>: Does the code have correct and well-designed automated tests?</p></li><li><p><strong>Naming</strong>: Did the developer choose clear names for variables, classes, methods, etc.?</p></li><li><p><strong>Comments</strong>: Are the comments clear and useful?</p></li><li><p><strong>Style</strong>: Does the code follow our <a class="external-link" href="http://google.github.io/styleguide/" rel="nofollow">style guides</a>?</p></li><li><p><strong>Documentation</strong>: Did the developer also update relevant documentation?</p></li></ul><p><strong>What Reviewers Should Write in a PR Review:</strong></p><ul><li><p><strong>Summary</strong>: High-level statement (e.g., “Code is clear and works as intended, just some minor style fixes”).</p></li><li><p><strong>Inline Comments</strong>: Point to specific lines where issues/improvements can be made.</p></li><li><p><strong>Categorise Feedback</strong>:</p><ul><li><p><em>Required Changes</em> (must be fixed before merge)</p></li><li><p><em>Suggestions</em> (nice-to-have improvements)</p></li></ul></li><li><p><strong>Approval or Request Changes</strong>: Use GitHub’s built-in review options</p></li></ul><p><a class="external-link" href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests" rel="nofollow">About Pull Requests</a></p><p><a class="external-link" href="https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/creating-a-pull-request-template-for-your-repository" rel="nofollow">Guide: Creating a PR template</a></p><p><a class="external-link" href="https://google.github.io/eng-practices/review/" rel="nofollow">Code Review Best Practices</a></p><hr/><h2 id="OurDevelopmentBestPractices-4.CommitMessageStandards">4. Commit Message Standards</h2><ul><li><p>Use Conventional Commits format:</p><ul><li><p><code>feat:</code> for new features.</p></li><li><p><code>fix:</code> for bug fixes.</p></li><li><p><code>chore:</code> for non-functional changes (deps, config).</p></li><li><p><code>wip:</code> for work-in-progress small steps</p></li><li><p><code>docs:</code> for documentation.</p></li><li><p><code>refactor:</code> for structural changes without behaviour changes.</p></li></ul></li><li><p>Example:</p><ul><li><p><code>feat: add user authentication service</code></p></li><li><p><code>fix: resolve login null pointer exception</code></p></li></ul></li></ul><hr/><h2 id="OurDevelopmentBestPractices-5.Versioning&amp;ReleaseNotes">5. Versioning &amp; Release Notes</h2><ul><li><p><strong>Versioning</strong>: Use Semantic Versioning (<code>MAJOR.MINOR.PATCH</code>).</p></li><li><p><strong>Releases</strong>:</p><ul><li><p>Releases created at the <strong>end of each sprint</strong>.</p></li><li><p>Tag releases in GitHub (<code>v1.0.0</code>, <code>v1.1.0</code>, etc.).</p></li></ul></li><li><p><strong>Release Notes</strong>:</p><ul><li><p>Written manually by release manager (rotating role).</p></li><li><p>Summarise features, fixes, and breaking changes.</p></li></ul></li></ul><p><a class="external-link" href="https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository" rel="nofollow">Guide: GitHub Releases</a></p><p><a class="external-link" href="https://semver.org/" rel="nofollow">Semantic Versioning</a></p><hr/><h2 id="OurDevelopmentBestPractices-6.BranchProtection">6. Branch Protection</h2><ul><li><p><code>main</code><strong> branch</strong>:</p><ul><li><p>Protected: only merge from <code>develop</code>.</p></li><li><p>Requires passing CI checks.</p></li><li><p>No force pushes.</p></li></ul></li><li><p><code>develop</code><strong> branch</strong>:</p><ul><li><p>Protected: only merge from feature/bugfix branches.</p></li><li><p>Requires passing CI checks.</p></li><li><p>No force pushes.</p></li></ul></li></ul><p><a class="external-link" href="https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule" rel="nofollow">Guide: Branch Protection</a></p><hr/><h2 id="OurDevelopmentBestPractices-7.IssueManagement&amp;Workflow">7. Issue Management &amp; Workflow</h2><ul><li><p><strong>Tool</strong>: Trello for task tracking.</p></li><li><p><strong>Workflow</strong>:</p><ul><li><p>Each Trello card represents a feature, bug, or task.</p></li><li><p>Branches/PRs should reference the card where possible.</p></li><li><p>Cards moved to “Done” once merged into <code>develop</code>.</p></li><li><p>Issues remain open until the fix/feature is verified in staging.</p></li></ul></li><li><p><strong>Templates</strong>:</p><ul><li><p>Bug Report: steps to reproduce, expected vs actual.</p></li><li><p>Feature Request: description, acceptance criteria.</p></li></ul></li></ul><p><a class="external-link" href="https://docs.github.com/en/issues/tracking-your-work-with-issues/learning-about-issues/about-issues" rel="nofollow">Github About issues</a></p><hr/><h2 id="OurDevelopmentBestPractices-8.AdditionalBestPractices">8. Additional Best Practices</h2><ul><li><p><strong>Secrets</strong>: Never commit API keys or passwords — use environment variables.</p></li><li><p><strong>Documentation</strong>: Update README and any relevant docs when behaviour changes.</p></li><li><p><strong>Responsiveness</strong>: Aim to review PRs within 1–2 days.</p></li><li><p><strong>Code Ownership</strong>: Informal — any team member can review any code.</p></li></ul>
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/23494674/24412162.png">image-20250910-063314.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/23494674/25133058.png">image-20250910-063338.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Mar 03, 2026 12:01</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>
