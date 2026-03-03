@@ -27,6 +27,7 @@ A description of each course and project is provided, with relevant links of inf
 - [MAST10012 - Introduction to Mathematics](MAST10012/README.md)
 - [MAST20009 - Vector Calculus](MAST20009/README.md)
 - [MAST20026 - Real Analysis](MAST20026/README.md)
+- [MAST20030 - Differential Equations](MAST20030/README.md)
 
 **OTHER SUBJECTS**
 
@@ -43,14 +44,6 @@ The repository is organised by individual courses. Each course contains coding a
 - Java
 - Git for version control
 - Some mathematical technologies
-
-## Clone repo:
-
-To clone this repository:
-
-```bash
-git clone https://github.com/yourusername/university-projects-repo.git
-```
 
 ## Future Updates
 
