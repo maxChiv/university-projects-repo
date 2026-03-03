@@ -14,6 +14,7 @@
 - [SWEN30006 - Software Modelling and Design](SWEN30006/README.md)
 
 **MATHEMATICAL SCIENCES, SPECIALISING IN APPLIED MATHEMATICS SUBJECTS:**
+- [PHYC10004 - Physics 2: Physical Science & Technology](PHYC10004/README.md)
 - [PHYC10009 - Foundations of Physics](PHYC10009/README.md)
 - [MAST10005 - Calculus 1](MAST10005/README.md)
 - [MAST10006 - Calculus 2](MAST10006/README.md)
